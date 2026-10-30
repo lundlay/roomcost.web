@@ -3,143 +3,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#f6f6f2">
-  <meta name="description" content="RoomCost — приложение для планировки помещений, расчёта работ и материалов и подготовки сметы ремонта на iPhone и iPad.">
+  <meta name="theme-color" content="#f4f1e9">
+  <meta name="description" content="RoomCost — план помещений, работы, материалы и смета ремонта для iPhone и iPad. Сканируйте комнаты, считайте объёмы и готовьте список покупок.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="RoomCost — планируйте ремонт целиком">
-  <meta property="og:description" content="План помещений, работы, материалы и смета ремонта в одном приложении для iPhone и iPad.">
-  <meta property="og:url" content="https://lundlay.github.io/roomcost.web/">
-  <title>RoomCost — планируйте ремонт целиком</title>
-  <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#f6f6f2;--paper:#fff;--ink:#202720;--muted:#727b72;--green:#315f49;--green2:#dce9df;--line:#e3e8e1;--orange:#d18b4e;--shadow:0 24px 70px #26382a18}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
-    a{color:inherit;text-decoration:none}
-    button{font:inherit}
-    .shell{width:min(1160px,calc(100% - 56px));margin:auto}
-    .topbar{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
-    .brand{display:flex;align-items:center;gap:11px;font:800 20px Manrope,sans-serif;letter-spacing:-.06em}
-    .brand-icon{width:36px;height:36px;border-radius:12px;background:var(--green);display:grid;place-items:center;color:white}
-    .brand-icon svg{width:21px}
-    .links{display:flex;align-items:center;gap:32px;color:#5f695f;font-size:13px}
-    .links a:hover{color:var(--green)}
-    .actions{display:flex;align-items:center;gap:12px}
-    .lang{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:99px;padding:8px 11px;font-size:11px;cursor:pointer}
-    .lang b{color:var(--ink)}
-    .menu{display:none;border:0;background:none;color:var(--ink);font-size:23px}
-    .hero{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center;padding:87px 0 86px;min-height:610px}
-    .eyebrow{display:flex;align-items:center;gap:10px;color:var(--green);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
-    .eyebrow:before{content:"";height:1px;width:26px;background:var(--green)}
-    h1,h2,h3,p{margin-top:0}
-    h1,h2,h3{font-family:Manrope,"DM Sans",sans-serif}
-    h1{font-size:clamp(48px,6.1vw,78px);line-height:.99;letter-spacing:-.075em;font-weight:600;margin:24px 0}
-    h1 em{font-style:normal;color:var(--green)}
-    .intro{font-size:17px;line-height:1.7;color:var(--muted);max-width:480px;margin-bottom:28px}
-    .button-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-    .button{height:48px;padding:0 19px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:600;font-size:13px;transition:transform .2s,background .2s}
-    .button:hover{transform:translateY(-2px)}
-    .primary{background:var(--green);color:#fff}
-    .primary:hover{background:#274d3a}
-    .secondary{border:1px solid #d8ded6;background:transparent}
-    .secondary:hover{background:#fff}
-    .release{display:flex;align-items:center;gap:9px;margin-top:25px;color:var(--muted);font-size:12px}
-    .pulse{width:7px;height:7px;background:#d18b4e;border-radius:50%;box-shadow:0 0 0 4px #d18b4e20}
-    .art{min-height:435px;position:relative;display:grid;place-items:center}
-    .art-glow{position:absolute;width:360px;height:360px;border-radius:50%;background:#e7eee5;filter:blur(1px)}
-    .device{position:relative;width:min(76%,335px);height:415px;border:7px solid #303832;border-radius:37px;background:#fdfdfa;padding:15px;box-shadow:0 30px 75px #21362625;transform:rotate(4deg)}
-    .island{width:72px;height:17px;background:#303832;border-radius:20px;margin:-5px auto 14px}
-    .screen-head{display:flex;justify-content:space-between;align-items:center;font-size:10px;color:#6d786f;padding:2px 3px 13px}
-    .screen-head strong{color:var(--ink);font:700 13px Manrope}
-    .screen-title{font:700 20px Manrope;letter-spacing:-.05em;margin:2px 2px 12px}
-    .screen-plan{height:204px;border:1px solid #dfe5dc;border-radius:13px;background:#f5f7f2;position:relative;overflow:hidden}
-    .screen-plan:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#e8ede6 1px,transparent 1px),linear-gradient(90deg,#e8ede6 1px,transparent 1px);background-size:18px 18px}
-    .walls{position:absolute;left:17%;right:15%;top:15%;bottom:15%;border:4px solid #728477;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1.2fr .8fr}
-    .walls span{border:2px solid #829386;background:#e6eee5}
-    .walls span:nth-child(1){border-left:0;border-top:0}
-    .walls span:nth-child(2){border-right:0;border-top:0}
-    .walls span:nth-child(3){border-left:0;border-bottom:0}
-    .walls span:nth-child(4){border-right:0;border-bottom:0}
-    .measure-line{position:absolute;left:17%;right:15%;top:10%;height:1px;background:#c9965c}
-    .measure-line:after{content:"5,40 м";position:absolute;right:0;top:-14px;font-size:8px;color:#a06d39}
-    .screen-tabs{display:flex;gap:7px;margin:12px 0}
-    .screen-tabs span{background:#edf2eb;color:#526957;border-radius:20px;padding:5px 9px;font-size:8px}
-    .estimate-card{border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff}
-    .estimate-head{display:flex;justify-content:space-between;font-size:9px;color:var(--muted);padding-bottom:8px;border-bottom:1px solid var(--line)}
-    .estimate-row{display:flex;justify-content:space-between;padding-top:9px;font-size:9px}
-    .estimate-row strong{font-size:10px}
-    .float-card{position:absolute;background:#fff;border:1px solid #e3e8e1;border-radius:13px;box-shadow:var(--shadow);padding:13px 15px}
-    .float-card small{display:block;color:var(--muted);font-size:9px;margin-bottom:5px}
-    .float-card strong{font:700 14px Manrope}
-    .float-one{right:0;top:72px;transform:rotate(-3deg)}
-    .float-two{left:0;bottom:47px;transform:rotate(3deg)}
-    .float-icon{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:7px;background:var(--green2);color:var(--green);margin-right:6px;vertical-align:middle}
-    .facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
-    .fact{display:flex;align-items:center;justify-content:center;gap:11px;border-right:1px solid var(--line);font-size:12px;color:#566057}
-    .fact:last-child{border:0}
-    .fact-icon{color:var(--green);font-size:17px}
-    .section{padding:105px 0}
-    .section-head{max-width:620px;margin-bottom:43px}
-    .section-head h2{font-size:clamp(34px,4.5vw,54px);line-height:1.05;letter-spacing:-.065em;font-weight:600;margin:19px 0}
-    .section-head p{font-size:15px;line-height:1.7;color:var(--muted);max-width:520px}
-    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
-    .feature{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:25px;min-height:216px;transition:transform .2s,border .2s}
-    .feature:hover{transform:translateY(-3px);border-color:#bdcdbf}
-    .feature-top{display:flex;justify-content:space-between;align-items:center}
-    .feature-icon{width:39px;height:39px;display:grid;place-items:center;border-radius:12px;background:var(--green2);color:var(--green);font-size:19px}
-    .feature-num{font-size:10px;color:#a0a99f;letter-spacing:.1em}
-    .feature h3{font-size:17px;letter-spacing:-.04em;margin:24px 0 9px}
-    .feature p{font-size:12px;line-height:1.65;color:var(--muted);margin:0}
-    .dark{background:#26382e;color:#f2f5f0}
-    .dark .eyebrow{color:#b9d1bf}
-    .dark .eyebrow:before{background:#b9d1bf}
-    .dark .section-head p{color:#b9c4ba}
-    .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
-    .flow:before{content:"";position:absolute;left:8%;right:8%;top:22px;border-top:1px solid #607466}
-    .step{position:relative;padding:0 22px 0 0}
-    .step-index{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:#3e5848;border:1px solid #68806e;color:#e4eee5;font:600 12px Manrope;position:relative}
-    .step h3{font-size:16px;letter-spacing:-.03em;margin:22px 0 8px}
-    .step p{color:#b9c4ba;font-size:12px;line-height:1.65;max-width:220px}
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-    .plan-art{min-height:340px;border-radius:20px;background:#e9eee7;position:relative;overflow:hidden;display:grid;place-items:center}
-    .blueprint{width:68%;height:65%;border:7px solid #526957;display:grid;grid-template-columns:1.2fr .8fr;grid-template-rows:1fr .8fr;transform:rotate(-5deg);box-shadow:0 20px 45px #293e2e20}
-    .blueprint span{background:#f9faf6;border:3px solid #718575;display:grid;place-items:center;color:#77857a;font-size:9px}
-    .blueprint span:nth-child(1){border-left:0;border-top:0}
-    .blueprint span:nth-child(2){border-right:0;border-top:0}
-    .blueprint span:nth-child(3){border-left:0;border-bottom:0}
-    .blueprint span:nth-child(4){border-right:0;border-bottom:0}
-    .pin{position:absolute;right:12%;top:15%;background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 13px;box-shadow:var(--shadow);font-size:10px;color:var(--muted)}
-    .pin b{display:block;color:var(--ink);font:700 13px Manrope;margin-top:3px}
-    .checklist{list-style:none;padding:0;margin:27px 0 0;display:grid;gap:13px}
-    .checklist li{display:flex;gap:11px;color:#566057;font-size:13px;line-height:1.5}
-    .check{color:var(--green);font-weight:700}
-    .price-box{border:1px solid var(--line);background:#fff;border-radius:15px;padding:23px;margin-top:25px}
-    .price-box strong{font:700 14px Manrope}
-    .price-box p{font-size:12px;line-height:1.6;color:var(--muted);margin:8px 0 0}
-    .final{padding:82px 0 90px;text-align:center}
-    .final h2{font-size:clamp(36px,5vw,58px);line-height:1.04;letter-spacing:-.07em;font-weight:600;max-width:700px;margin:19px auto}
-    .final p{color:var(--muted);font-size:14px;line-height:1.7;max-width:500px;margin:0 auto 25px}
-    footer{border-top:1px solid var(--line);padding:25px 0 35px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:var(--muted);font-size:11px}
-    .foot-brand{color:var(--ink);font:800 14px Manrope;letter-spacing:-.04em}
-    @media(max-width:800px){.shell{width:calc(100% - 38px)}.links{gap:16px}.hero{gap:10px;padding:62px 0}.art{min-height:390px}.device{width:74%;height:385px}.screen-plan{height:180px}.feature-grid{grid-template-columns:repeat(2,1fr)}.section{padding:78px 0}.split{gap:35px}.float-one{right:-3px}.float-two{left:-4px}}
-    @media(max-width:620px){.shell{width:calc(100% - 34px)}.topbar{height:70px}.links{display:none;position:absolute;z-index:5;top:70px;left:0;right:0;padding:18px;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.links.open{display:flex}.menu{display:block}.hero{grid-template-columns:1fr;padding:58px 0 45px}.hero-copy{max-width:540px}.intro{font-size:15px}.art{min-height:370px;margin-top:4px}.device{width:min(78%,320px);height:370px}.screen-plan{height:168px}.float-one{right:0;top:48px}.float-two{left:0;bottom:26px}.facts{grid-template-columns:1fr 1fr;gap:0}.fact{justify-content:flex-start;padding:13px 6px;border-right:0;font-size:11px}.fact:nth-child(odd){border-right:1px solid var(--line)}.fact:nth-child(-n+2){border-bottom:1px solid var(--line)}.section{padding:69px 0}.section-head{margin-bottom:30px}.feature-grid{grid-template-columns:1fr;gap:10px}.feature{min-height:auto;padding:21px}.feature h3{margin-top:18px}.flow{grid-template-columns:1fr 1fr;gap:28px 12px}.flow:before{display:none}.step{padding:0}.step p{font-size:11px}.split{grid-template-columns:1fr;gap:32px}.plan-art{min-height:275px;order:2}.split-copy{order:1}.final{padding:67px 0}.final p{font-size:13px}footer{align-items:flex-start;flex-direction:column}.foot-right{line-height:1.6}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
-  </style>
+  <meta property="og:title" content="RoomCost — от плана комнаты до сметы">
+  <meta property="og:description" content="Планируйте ремонт по помещениям, считайте работы и материалы, собирайте смету в одном проекте.">
+  <meta property="og:url" content="https://roomcost.app/">
+  <meta property="og:image" content="https://roomcost.app/app-icon.jpg">
+  <link rel="canonical" href="https://roomcost.app/">
+  <link rel="icon" href="app-icon.jpg" type="image/jpeg">
+  <title>RoomCost — план и смета ремонта</title>
+  <link rel="stylesheet" href="site.css">
 </head>
 <body>
   <header class="topbar shell">
     <a class="brand" href="#top" aria-label="RoomCost">
-      <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h7v7H4zM13 4h7v5h-7zM13 11h7v9h-7zM4 13h7v7H4z"/></svg></span>
-      RoomCost
+      <img src="app-icon.jpg" alt="">
+      <span>RoomCost</span>
     </a>
     <nav class="links" id="nav">
+      <a href="#workflow" data-ru="Как устроен RoomCost" data-en="How RoomCost works">Как устроен RoomCost</a>
       <a href="#features" data-ru="Возможности" data-en="Features">Возможности</a>
-      <a href="#how" data-ru="Как это работает" data-en="How it works">Как это работает</a>
-      <a href="#estimate" data-ru="Смета" data-en="Estimate">Смета</a>
+      <a href="#estimate" data-ru="Смета и экспорт" data-en="Estimate and export">Смета и экспорт</a>
     </nav>
     <div class="actions">
       <button class="lang" id="lang" type="button" aria-label="Switch language"><b>RU</b> / EN</button>
@@ -149,116 +34,126 @@
 
   <main id="top">
     <section class="hero shell">
-      <div class="hero-copy">
-        <div class="eyebrow" data-ru="Планирование ремонта для iPhone и iPad" data-en="Renovation planning for iPhone and iPad">Планирование ремонта для iPhone и iPad</div>
-        <h1 data-ru="Ремонт,<br>собранный <em>в одном месте.</em>" data-en="Your renovation,<br><em>all in one place.</em>">Ремонт,<br>собранный <em>в одном месте.</em></h1>
-        <p class="intro" data-ru="Нарисуйте план, назначьте работы и материалы, посмотрите расчёт по комнатам и всему проекту. RoomCost помогает пройти путь от первого замера до понятной сметы." data-en="Draw a floor plan, assign work and materials, and see costs room by room or across the whole project. RoomCost brings the process from first measurements to a clear estimate together.">Нарисуйте план, назначьте работы и материалы, посмотрите расчёт по комнатам и всему проекту. RoomCost помогает пройти путь от первого замера до понятной сметы.</p>
+      <div>
+        <div class="eyebrow" data-ru="Планировщик ремонта для iPhone и iPad" data-en="Renovation planner for iPhone and iPad">Планировщик ремонта для iPhone и iPad</div>
+        <h1 data-ru="План помещения.<br>Работы. Материалы.<br><em>Понятная смета.</em>" data-en="Room plan.<br>Work. Materials.<br><em>A clear estimate.</em>">План помещения.<br>Работы. Материалы.<br><em>Понятная смета.</em></h1>
+        <p class="intro" data-ru="RoomCost связывает чертёж с расчётом: создайте комнаты и стены, назначьте им работы и материалы, укажите свои цены — и смотрите, из чего складывается стоимость ремонта." data-en="RoomCost connects your floor plan to the estimate: create rooms and walls, assign work and materials, enter your own prices, and see how the renovation cost adds up.">RoomCost связывает чертёж с расчётом: создайте комнаты и стены, назначьте им работы и материалы, укажите свои цены — и смотрите, из чего складывается стоимость ремонта.</p>
         <div class="button-row">
-          <a class="button primary" href="#features"><span data-ru="Изучить возможности" data-en="Explore features">Изучить возможности</span><span aria-hidden="true">↗</span></a>
-          <a class="button secondary" href="#release"><span data-ru="О релизе" data-en="Release info">О релизе</span></a>
+          <a class="button primary" href="#workflow"><span data-ru="Как это работает" data-en="How it works">Как это работает</span><span aria-hidden="true">↘</span></a>
+          <a class="button secondary" href="#release"><span data-ru="Статус релиза" data-en="Release status">Статус релиза</span></a>
         </div>
-        <div class="release"><span class="pulse"></span><span data-ru="Готовим приложение к публикации в App Store" data-en="Getting ready for the App Store">Готовим приложение к публикации в App Store</span></div>
+        <div class="release"><span class="pulse"></span><span data-ru="Готовим RoomCost к публикации в App Store" data-en="RoomCost is being prepared for the App Store">Готовим RoomCost к публикации в App Store</span></div>
       </div>
-      <div class="art" aria-label="Интерфейс RoomCost: план комнаты и смета">
-        <div class="art-glow"></div>
-        <div class="device">
-          <div class="island"></div>
-          <div class="screen-head"><strong>RoomCost</strong><span data-ru="Этаж 1　⌄" data-en="Floor 1　⌄">Этаж 1　⌄</span></div>
-          <div class="screen-title" data-ru="Моя квартира" data-en="My apartment">Моя квартира</div>
-          <div class="screen-plan"><div class="measure-line"></div><div class="walls"><span></span><span></span><span></span><span></span></div></div>
-          <div class="screen-tabs"><span data-ru="План" data-en="Plan">План</span><span>3D</span><span data-ru="Комнаты" data-en="Rooms">Комнаты</span></div>
-          <div class="estimate-card">
-            <div class="estimate-head"><span data-ru="СМЕТА ПРОЕКТА" data-en="PROJECT ESTIMATE">СМЕТА ПРОЕКТА</span><span data-ru="Все комнаты" data-en="All rooms">Все комнаты</span></div>
-            <div class="estimate-row"><span data-ru="Работы" data-en="Work">Работы</span><strong>₽ 128 400</strong></div>
-            <div class="estimate-row"><span data-ru="Материалы" data-en="Materials">Материалы</span><strong>₽ 86 250</strong></div>
+      <div class="product-visual" aria-label="Макет плана комнаты и расчёта в RoomCost">
+        <div class="screen">
+          <div class="screen-top"><strong>RoomCost</strong><span data-ru="Этаж 1　⌄" data-en="Floor 1　⌄">Этаж 1　⌄</span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+            <div class="screen-title" style="margin:0" data-ru="Квартира · План" data-en="Apartment · Plan">Квартира · План</div>
+            <div class="view-switch"><span class="active">2D</span><span>3D</span></div>
           </div>
+          <div class="floor-plan"><span class="plan-measure">5,40 м</span><div class="rooms"><i></i><i></i><i></i><i></i></div></div>
+          <div class="screen-lower">
+            <div class="mini-panel"><div class="mini-label" data-ru="Работы · гостиная" data-en="Work · living room">Работы · гостиная</div><div class="mini-line" style="width:91%"></div><div class="mini-line" style="width:73%"></div><div class="mini-line" style="width:82%"></div></div>
+            <div class="mini-panel"><div class="mini-label" data-ru="Материалы" data-en="Materials">Материалы</div><div class="mini-line" style="width:78%"></div><div class="mini-total">₽ 34 800</div></div>
+          </div>
+          <div class="screen-foot"><span data-ru="Пример проекта" data-en="Sample project">Пример проекта</span><span data-ru="Смета по комнатам" data-en="Room-by-room estimate">Смета по комнатам</span></div>
         </div>
-        <div class="float-card float-one"><small data-ru="ПЛОЩАДЬ СТЕН" data-en="WALL AREA">ПЛОЩАДЬ СТЕН</small><strong>42,8 м²</strong></div>
-        <div class="float-card float-two"><small data-ru="МАТЕРИАЛЫ" data-en="MATERIALS">МАТЕРИАЛЫ</small><strong><span class="float-icon">✓</span><span data-ru="Посчитаны" data-en="Calculated">Посчитаны</span></strong></div>
+        <div class="icon-card"><img src="app-icon.jpg" alt="Иконка приложения RoomCost"></div>
+        <span class="visual-caption" data-ru="Иллюстративный макет интерфейса" data-en="Illustrative interface mockup">Иллюстративный макет интерфейса</span>
       </div>
     </section>
 
-    <section class="facts shell" aria-label="Ключевые возможности">
-      <div class="fact"><span class="fact-icon">⌗</span><span data-ru="План и размеры" data-en="Plans and dimensions">План и размеры</span></div>
-      <div class="fact"><span class="fact-icon">◫</span><span data-ru="Просмотр в 3D" data-en="3D visualization">Просмотр в 3D</span></div>
-      <div class="fact"><span class="fact-icon">∑</span><span data-ru="Расчёт материалов" data-en="Material calculation">Расчёт материалов</span></div>
-      <div class="fact"><span class="fact-icon">↗</span><span data-ru="Экспорт документов" data-en="Document export">Экспорт документов</span></div>
+    <section class="facts shell" aria-label="Основные инструменты RoomCost">
+      <div class="fact"><span class="fact-icon">⌗</span><span data-ru="Редактор плана" data-en="Floor plan editor">Редактор плана</span></div>
+      <div class="fact"><span class="fact-icon">◩</span><span data-ru="Просмотр этажа в 3D" data-en="3D floor view">Просмотр этажа в 3D</span></div>
+      <div class="fact"><span class="fact-icon">∑</span><span data-ru="Работы и материалы" data-en="Work and materials">Работы и материалы</span></div>
+      <div class="fact"><span class="fact-icon">▤</span><span data-ru="Смета и список покупок" data-en="Estimate and shopping list">Смета и список покупок</span></div>
+    </section>
+
+    <section class="section shell" id="workflow">
+      <div class="section-head">
+        <div class="eyebrow" data-ru="Один проект — вся работа" data-en="One project, all the details">Один проект — вся работа</div>
+        <h2 data-ru="От геометрии комнаты<br>к стоимости ремонта." data-en="From room geometry<br>to renovation costs.">От геометрии комнаты<br>к стоимости ремонта.</h2>
+        <p data-ru="RoomCost считает не абстрактную сумму. В основе сметы — помещения, размеры поверхностей, назначенные работы, материалы и цены из ваших справочников." data-en="RoomCost builds an estimate from the actual project: rooms, measured surfaces, assigned work, materials, and prices from your catalogs.">RoomCost считает не абстрактную сумму. В основе сметы — помещения, размеры поверхностей, назначенные работы, материалы и цены из ваших справочников.</p>
+      </div>
+      <div class="flow">
+        <article class="step"><div class="step-index">01</div><h3 data-ru="Соберите план" data-en="Build the plan">Соберите план</h3><p data-ru="Создайте этажи и комнаты вручную или перенесите скан комнаты на совместимом iPhone с LiDAR." data-en="Create floors and rooms by hand, or import a room scan from a compatible LiDAR-equipped iPhone.">Создайте этажи и комнаты вручную или перенесите скан комнаты на совместимом iPhone с LiDAR.</p></article>
+        <article class="step"><div class="step-index">02</div><h3 data-ru="Разметьте элементы" data-en="Add the details">Разметьте элементы</h3><p data-ru="Задайте размеры, проёмы и высоту; переключайтесь между 2D-планом и 3D-моделью этажа." data-en="Set dimensions, openings, and height; switch between the 2D plan and a 3D floor model.">Задайте размеры, проёмы и высоту; переключайтесь между 2D-планом и 3D-моделью этажа.</p></article>
+        <article class="step"><div class="step-index">03</div><h3 data-ru="Назначьте работы" data-en="Assign work">Назначьте работы</h3><p data-ru="Используйте каталог работ и свои расценки. При необходимости задайте отдельный набор работ конкретной стене." data-en="Use your work catalog and rates. Assign a separate set of work to an individual wall when needed.">Используйте каталог работ и свои расценки. При необходимости задайте отдельный набор работ конкретной стене.</p></article>
+        <article class="step"><div class="step-index">04</div><h3 data-ru="Добавьте материалы" data-en="Add materials">Добавьте материалы</h3><p data-ru="Свяжите материалы с работами, укажите характеристики и цену — затем проверьте смету и закупку." data-en="Link materials to work, enter their specifications and prices, then review the estimate and shopping list.">Свяжите материалы с работами, укажите характеристики и цену — затем проверьте смету и закупку.</p></article>
+      </div>
     </section>
 
     <section class="section shell" id="features">
       <div class="section-head">
-        <div class="eyebrow" data-ru="Инструменты проекта" data-en="Project tools">Инструменты проекта</div>
-        <h2 data-ru="Всё начинается<br>с плана помещения." data-en="Every renovation<br>starts with a floor plan.">Всё начинается<br>с плана помещения.</h2>
-        <p data-ru="Создавайте проект поэтапно: от геометрии комнаты до списка покупок. Данные и расчёты связаны между собой, поэтому изменения плана отражаются в смете." data-en="Build a project step by step, from room geometry to a shopping list. Plans and calculations work together, so changes to a room flow through to the estimate.">Создавайте проект поэтапно: от геометрии комнаты до списка покупок. Данные и расчёты связаны между собой, поэтому изменения плана отражаются в смете.</p>
+        <div class="eyebrow" data-ru="Возможности приложения" data-en="Inside the app">Возможности приложения</div>
+        <h2 data-ru="Инструменты для настоящего проекта." data-en="Tools for the real project.">Инструменты для настоящего проекта.</h2>
+        <p data-ru="Редактор, справочники и смета работают вместе. Настраивайте проект под свой способ ремонта и используйте его данные дальше." data-en="The editor, catalogs, and estimate work together. Shape a project around your renovation and reuse its data.">Редактор, справочники и смета работают вместе. Настраивайте проект под свой способ ремонта и используйте его данные дальше.</p>
       </div>
       <div class="feature-grid">
-        <article class="feature"><div class="feature-top"><span class="feature-icon">⌗</span><span class="feature-num">01</span></div><h3 data-ru="Планы и замеры" data-en="Plans and measurements">Планы и замеры</h3><p data-ru="Рисуйте комнаты, задавайте размеры стен и проёмов, размещайте двери, окна и мебель. Работайте с этажами и планом целого проекта." data-en="Draw rooms, set wall and opening dimensions, and place doors, windows, and furniture. Organize floors across a complete project.">Рисуйте комнаты, задавайте размеры стен и проёмов, размещайте двери, окна и мебель. Работайте с этажами и планом целого проекта.</p></article>
-        <article class="feature"><div class="feature-top"><span class="feature-icon">⌁</span><span class="feature-num">02</span></div><h3 data-ru="Сканирование помещений" data-en="Room scanning">Сканирование помещений</h3><p data-ru="На совместимых устройствах с LiDAR сканируйте комнату или несколько помещений и переносите результат в план." data-en="On compatible LiDAR devices, scan a room or several spaces and bring the result into your floor plan.">На совместимых устройствах с LiDAR сканируйте комнату или несколько помещений и переносите результат в план.</p></article>
-        <article class="feature"><div class="feature-top"><span class="feature-icon">◩</span><span class="feature-num">03</span></div><h3 data-ru="План в 2D и 3D" data-en="Plan in 2D and 3D">План в 2D и 3D</h3><p data-ru="Переключайтесь между чертежом и объёмной моделью этажа. Осматривайте расположение комнат, проёмов и мебели." data-en="Switch between a floor plan and a 3D floor model. Inspect how rooms, openings, and furniture fit together.">Переключайтесь между чертежом и объёмной моделью этажа. Осматривайте расположение комнат, проёмов и мебели.</p></article>
-        <article class="feature"><div class="feature-top"><span class="feature-icon">↗</span><span class="feature-num">04</span></div><h3 data-ru="Работы и расценки" data-en="Work and pricing">Работы и расценки</h3><p data-ru="Соберите свой каталог работ и цены. Назначайте работы комнатам — количества рассчитываются по геометрии и вашим настройкам." data-en="Create a work catalog and set your own prices. Assign work to rooms and calculate quantities from geometry and your settings.">Соберите свой каталог работ и цены. Назначайте работы комнатам — количества рассчитываются по геометрии и вашим настройкам.</p></article>
-        <article class="feature"><div class="feature-top"><span class="feature-icon">▤</span><span class="feature-num">05</span></div><h3 data-ru="Материалы и покупки" data-en="Materials and shopping">Материалы и покупки</h3><p data-ru="Добавляйте материалы с параметрами расхода и ценой. Получайте сводный список покупок с округлением до упаковок." data-en="Add materials with coverage details and prices. Get a combined shopping list rounded to whole packages.">Добавляйте материалы с параметрами расхода и ценой. Получайте сводный список покупок с округлением до упаковок.</p></article>
-        <article class="feature"><div class="feature-top"><span class="feature-icon">▧</span><span class="feature-num">06</span></div><h3 data-ru="Сканирование ценников" data-en="Price tag scanning">Сканирование ценников</h3><p data-ru="Сфотографируйте ценник или выберите снимок. RoomCost распознает текст, чтобы быстрее заполнить карточку материала." data-en="Photograph a price tag or choose an image. RoomCost recognizes the text to help fill in a material entry faster.">Сфотографируйте ценник или выберите снимок. RoomCost распознает текст, чтобы быстрее заполнить карточку материала.</p></article>
+        <article class="feature"><div class="feature-top"><span class="feature-icon">⌗</span><span class="feature-num">01 / ПЛАН</span></div><h3 data-ru="Редактор этажа" data-en="Floor editor">Редактор этажа</h3><p data-ru="Рисуйте контуры комнат, задавайте стены, окна и двери, добавляйте мебель. Работайте с несколькими этажами, масштабируйте и поворачивайте план." data-en="Draw room outlines, add walls, windows, doors, and furniture. Work across floors, zoom, and rotate the plan.">Рисуйте контуры комнат, задавайте стены, окна и двери, добавляйте мебель. Работайте с несколькими этажами, масштабируйте и поворачивайте план.</p></article>
+        <article class="feature"><div class="feature-top"><span class="feature-icon">⌁</span><span class="feature-num">02 / СКАН</span></div><h3 data-ru="Сканирование RoomPlan" data-en="RoomPlan scanning">Сканирование RoomPlan</h3><p data-ru="Сканируйте одну комнату или последовательно несколько комнат. Функция доступна на поддерживаемых устройствах с LiDAR." data-en="Scan a single room or several rooms in sequence. Available on supported devices with LiDAR.">Сканируйте одну комнату или последовательно несколько комнат. Функция доступна на поддерживаемых устройствах с LiDAR.</p></article>
+        <article class="feature"><div class="feature-top"><span class="feature-icon">◩</span><span class="feature-num">03 / 2D + 3D</span></div><h3 data-ru="Два способа увидеть план" data-en="See the plan in 2D and 3D">Два способа увидеть план</h3><p data-ru="Просматривайте чертёж и объёмную модель этажа с мебелью и проёмами. В 3D можно измерить расстояние между точками." data-en="View the drawing and a 3D floor model with furniture and openings. Measure between points in 3D.">Просматривайте чертёж и объёмную модель этажа с мебелью и проёмами. В 3D можно измерить расстояние между точками.</p></article>
+        <article class="feature"><div class="feature-top"><span class="feature-icon">↗</span><span class="feature-num">04 / РАБОТЫ</span></div><h3 data-ru="Ваш каталог работ" data-en="Your work catalog">Ваш каталог работ</h3><p data-ru="Создайте свои виды работ и расценки. Назначайте их комнате или отдельным стенам; количества рассчитываются по геометрии и параметрам работы." data-en="Create work types and rates. Assign them to a room or individual walls; quantities use the plan geometry and work settings.">Создайте свои виды работ и расценки. Назначайте их комнате или отдельным стенам; количества рассчитываются по геометрии и параметрам работы.</p></article>
+        <article class="feature"><div class="feature-top"><span class="feature-icon">▤</span><span class="feature-num">05 / МАТЕРИАЛЫ</span></div><h3 data-ru="Расчёт материалов и упаковок" data-en="Materials and package counts">Расчёт материалов и упаковок</h3><p data-ru="Добавьте материал к работе, задайте его расход, размеры и цену. Список закупки суммирует материал по проекту и округляет количество до упаковок." data-en="Add materials to work with coverage, dimensions, and price. The shopping list combines project quantities and rounds up to full packs.">Добавьте материал к работе, задайте его расход, размеры и цену. Список закупки суммирует материал по проекту и округляет количество до упаковок.</p></article>
+        <article class="feature"><div class="feature-top"><span class="feature-icon">▧</span><span class="feature-num">06 / ЦЕННИКИ</span></div><h3 data-ru="Сканер ценника" data-en="Price tag scanner">Сканер ценника</h3><p data-ru="Сфотографируйте ценник камерой или выберите фото. Распознавание помогает заполнить название, стоимость и данные упаковки; результат можно проверить и исправить." data-en="Capture a price tag or choose a photo. Text recognition helps fill in the name, price, and package details; review and edit the result.">Сфотографируйте ценник камерой или выберите фото. Распознавание помогает заполнить название, стоимость и данные упаковки; результат можно проверить и исправить.</p></article>
+        <article class="feature"><div class="feature-top"><span class="feature-icon">◷</span><span class="feature-num">07 / СМЕТА</span></div><h3 data-ru="Смета по комнатам" data-en="Room-by-room estimate">Смета по комнатам</h3><p data-ru="Смотрите расчёт по помещениям и этажам, отдельно по работам и материалам. Зафиксируйте смету, чтобы сохранить применённые цены и состояние расчёта." data-en="Review costs by room and floor, with work and materials separated. Lock an estimate to preserve its prices and calculated state.">Смотрите расчёт по помещениям и этажам, отдельно по работам и материалам. Зафиксируйте смету, чтобы сохранить применённые цены и состояние расчёта.</p></article>
+        <article class="feature"><div class="feature-top"><span class="feature-icon">⇧</span><span class="feature-num">08 / ФАЙЛЫ</span></div><h3 data-ru="Проекты и каталоги с собой" data-en="Take projects and catalogs with you">Проекты и каталоги с собой</h3><p data-ru="Экспортируйте 3D-модель в USDZ, передавайте файл проекта и переносите каталоги работ и материалов через системное меню обмена." data-en="Export a 3D model in USDZ, share a project file, and transfer work and material catalogs through the system share sheet.">Экспортируйте 3D-модель в USDZ, передавайте файл проекта и переносите каталоги работ и материалов через системное меню обмена.</p></article>
+        <article class="feature"><div class="feature-top"><span class="feature-icon">⌕</span><span class="feature-num">09 / ПОИСК</span></div><h3 data-ru="Поиск по проектам" data-en="Find a project">Поиск по проектам</h3><p data-ru="Ищите по названию или адресу, сортируйте и фильтруйте список. Есть голосовой ввод поискового запроса." data-en="Search by name or address, sort and filter the list, or dictate a search query.">Ищите по названию или адресу, сортируйте и фильтруйте список. Есть голосовой ввод поискового запроса.</p></article>
       </div>
     </section>
 
-    <section class="section dark" id="how">
-      <div class="shell">
-        <div class="section-head">
-          <div class="eyebrow" data-ru="Понятный процесс" data-en="A clear process">Понятный процесс</div>
-          <h2 data-ru="От первого контура<br>до общей стоимости." data-en="From the first outline<br>to the total cost.">От первого контура<br>до общей стоимости.</h2>
-          <p data-ru="RoomCost помогает держать основные части ремонта рядом и видеть, из чего складывается итог." data-en="RoomCost keeps the key parts of a renovation together and shows what goes into the total.">RoomCost помогает держать основные части ремонта рядом и видеть, из чего складывается итог.</p>
+    <section class="section dark" id="estimate">
+      <div class="shell split">
+        <div class="plan-art" aria-label="Пример связанного плана комнат и сметы">
+          <div class="blueprint"><span data-ru="ГОСТИНАЯ" data-en="LIVING ROOM">ГОСТИНАЯ</span><span data-ru="КУХНЯ" data-en="KITCHEN">КУХНЯ</span><span data-ru="СПАЛЬНЯ" data-en="BEDROOM">СПАЛЬНЯ</span><span data-ru="ВАННАЯ" data-en="BATHROOM">ВАННАЯ</span></div>
+          <div class="pin"><span data-ru="ПЛАН · ЭТАЖ 1" data-en="PLAN · FLOOR 1">ПЛАН · ЭТАЖ 1</span><b>68,4 м²</b></div>
         </div>
-        <div class="flow">
-          <article class="step"><div class="step-index">01</div><h3 data-ru="Создайте проект" data-en="Create a project">Создайте проект</h3><p data-ru="Добавьте этажи и комнаты, нарисуйте план или начните со сканирования." data-en="Add floors and rooms, draw a plan, or start with a scan.">Добавьте этажи и комнаты, нарисуйте план или начните со сканирования.</p></article>
-          <article class="step"><div class="step-index">02</div><h3 data-ru="Настройте работы" data-en="Set up the work">Настройте работы</h3><p data-ru="Выберите работы для стен, пола и потолка. Укажите свои расценки." data-en="Choose work for walls, floors, and ceilings. Enter your own rates.">Выберите работы для стен, пола и потолка. Укажите свои расценки.</p></article>
-          <article class="step"><div class="step-index">03</div><h3 data-ru="Добавьте материалы" data-en="Add materials">Добавьте материалы</h3><p data-ru="Свяжите материалы с работами и проверьте расчёт количества и упаковок." data-en="Link materials to work and review quantities and package counts.">Свяжите материалы с работами и проверьте расчёт количества и упаковок.</p></article>
-          <article class="step"><div class="step-index">04</div><h3 data-ru="Изучите смету" data-en="Review the estimate">Изучите смету</h3><p data-ru="Сравните стоимость по комнатам и проекту. Подготовьте PDF или 3D-модель." data-en="Review costs by room and project. Prepare a PDF or a 3D model.">Сравните стоимость по комнатам и проекту. Подготовьте PDF или 3D-модель.</p></article>
+        <div class="split-copy">
+          <div class="eyebrow" data-ru="Смета — продолжение плана" data-en="The estimate grows from the plan">Смета — продолжение плана</div>
+          <div class="section-head">
+            <h2 data-ru="Проверяйте состав, а не только итог." data-en="Review the details, not just the total.">Проверяйте состав, а не только итог.</h2>
+            <p data-ru="У каждой строки есть количество, единица, цена и сумма. Переходите из расчёта к комнате, чтобы проверить исходные данные и назначения." data-en="Each line shows its quantity, unit, price, and amount. Jump from the estimate to a room to review the inputs and assignments.">У каждой строки есть количество, единица, цена и сумма. Переходите из расчёта к комнате, чтобы проверить исходные данные и назначения.</p>
+          </div>
+          <ul class="checklist">
+            <li><span class="check">✓</span><span data-ru="Сводные итоги проекта и детализация по этажам и комнатам" data-en="Project totals with breakdowns by floor and room">Сводные итоги проекта и детализация по этажам и комнатам</span></li>
+            <li><span class="check">✓</span><span data-ru="Работы, материалы и список покупок — раздельно" data-en="Work, materials, and the shopping list shown separately">Работы, материалы и список покупок — раздельно</span></li>
+            <li><span class="check">✓</span><span data-ru="Фиксация сметы и история оплаченных PDF-экспортов" data-en="Lock estimates and keep a history of paid PDF exports">Фиксация сметы и история оплаченных PDF-экспортов</span></li>
+            <li><span class="check">✓</span><span data-ru="Экспорт PDF и передача файла проекта" data-en="PDF export and project-file sharing">Экспорт PDF и передача файла проекта</span></li>
+          </ul>
+          <div class="price-box"><strong data-ru="Оплата PDF-экспорта" data-en="PDF export purchase">Оплата PDF-экспорта</strong><p data-ru="Предусмотрена отдельная покупка экспорта для конкретной версии сметы через Apple In‑App Purchase. Это не подписка. Фактическая цена отображается в приложении до подтверждения покупки." data-en="A separate Apple In‑App Purchase is planned for exporting a specific estimate version. It is not a subscription. The current price is shown in the app before you confirm.">Предусмотрена отдельная покупка экспорта для конкретной версии сметы через Apple In‑App Purchase. Это не подписка. Фактическая цена отображается в приложении до подтверждения покупки.</p></div>
         </div>
       </div>
     </section>
 
-    <section class="section shell split" id="estimate">
-      <div class="plan-art" aria-label="Схема плана квартиры">
-        <div class="blueprint"><span data-ru="ГОСТИНАЯ" data-en="LIVING ROOM">ГОСТИНАЯ</span><span data-ru="КУХНЯ" data-en="KITCHEN">КУХНЯ</span><span data-ru="СПАЛЬНЯ" data-en="BEDROOM">СПАЛЬНЯ</span><span data-ru="ВАННАЯ" data-en="BATHROOM">ВАННАЯ</span></div>
-        <div class="pin"><span data-ru="ПЛОЩАДЬ ЭТАЖА" data-en="FLOOR AREA">ПЛОЩАДЬ ЭТАЖА</span><b>68,4 м²</b></div>
+    <section class="section shell">
+      <div class="section-head">
+        <div class="eyebrow" data-ru="Устройства и данные" data-en="Devices and data">Устройства и данные</div>
+        <h2 data-ru="Под ваши проекты и привычный процесс." data-en="Fits your projects and workflow.">Под ваши проекты и привычный процесс.</h2>
+        <p data-ru="RoomCost создаётся как приложение Apple для iPhone и iPad. Можно работать вручную; отдельные возможности зависят от оборудования и разрешений устройства." data-en="RoomCost is being built for Apple iPhone and iPad. You can work manually; some features depend on device hardware and permissions.">RoomCost создаётся как приложение Apple для iPhone и iPad. Можно работать вручную; отдельные возможности зависят от оборудования и разрешений устройства.</p>
       </div>
-      <div class="split-copy">
-        <div class="eyebrow" data-ru="Расчёт, которому можно следовать" data-en="An estimate you can follow">Расчёт, которому можно следовать</div>
-        <div class="section-head" style="margin:18px 0 0">
-          <h2 data-ru="Видно, откуда берётся итог." data-en="See where the total comes from.">Видно, откуда берётся итог.</h2>
-          <p data-ru="Смета показывает работы и материалы отдельно, с детализацией по комнатам и этажам. Список покупок помогает оценить материалы в упаковках." data-en="The estimate separates work and materials, with a breakdown by room and floor. A shopping list helps you plan materials by package.">Смета показывает работы и материалы отдельно, с детализацией по комнатам и этажам. Список покупок помогает оценить материалы в упаковках.</p>
-        </div>
-        <ul class="checklist">
-          <li><span class="check">✓</span><span data-ru="Количество по размерам помещений и выбранным правилам расчёта" data-en="Quantities based on room dimensions and your calculation settings">Количество по размерам помещений и выбранным правилам расчёта</span></li>
-          <li><span class="check">✓</span><span data-ru="Стоимость работ и материалов с вашими ценами" data-en="Work and material costs using your own prices">Стоимость работ и материалов с вашими ценами</span></li>
-          <li><span class="check">✓</span><span data-ru="Просмотр PDF перед экспортом" data-en="Preview the PDF before export">Просмотр PDF перед экспортом</span></li>
-          <li><span class="check">✓</span><span data-ru="Экспорт модели этажа в USDZ" data-en="Export a floor model in USDZ">Экспорт модели этажа в USDZ</span></li>
-        </ul>
-        <div class="price-box"><strong data-ru="Экспорт сметы в PDF" data-en="Exporting an estimate to PDF">Экспорт сметы в PDF</strong><p data-ru="В приложении предусмотрена отдельная покупка PDF-экспорта через App Store. Цена будет указана в приложении перед покупкой." data-en="PDF export is offered as a separate in-app purchase through the App Store. The price will be shown in the app before purchase.">В приложении предусмотрена отдельная покупка PDF-экспорта через App Store. Цена будет указана в приложении перед покупкой.</p></div>
+      <div class="feature-grid">
+        <article class="feature"><div class="feature-top"><span class="feature-icon">☁</span><span class="feature-num" data-ru="ХРАНЕНИЕ" data-en="STORAGE">ХРАНЕНИЕ</span></div><h3 data-ru="На устройстве и в iCloud" data-en="On device and in iCloud">На устройстве и в iCloud</h3><p data-ru="Без входа в iCloud проекты хранятся локально. Когда iCloud доступен и включён, RoomCost использует частную базу CloudKit вашей учётной записи Apple для синхронизации." data-en="Without iCloud, projects are stored locally. When iCloud is available and enabled, RoomCost uses your private CloudKit database to sync.">Без входа в iCloud проекты хранятся локально. Когда iCloud доступен и включён, RoomCost использует частную базу CloudKit вашей учётной записи Apple для синхронизации.</p></article>
+        <article class="feature"><div class="feature-top"><span class="feature-icon">文</span><span class="feature-num" data-ru="ЛОКАЛИЗАЦИЯ" data-en="LANGUAGES">ЛОКАЛИЗАЦИЯ</span></div><h3 data-ru="Пять языков приложения" data-en="Five app languages">Пять языков приложения</h3><p data-ru="Английский, русский, украинский, польский и казахский. Валюту сметы можно выбрать отдельно." data-en="English, Russian, Ukrainian, Polish, and Kazakh. Choose the estimate currency separately.">Английский, русский, украинский, польский и казахский. Валюту сметы можно выбрать отдельно.</p><div class="languages"><span>EN</span><span>RU</span><span>UK</span><span>PL</span><span>KK</span></div><p style="font-size:9px;color:var(--muted);margin:10px 0 0" data-ru="Валюты сметы: RUB · EUR · USD · KZT · BYN · UAH" data-en="Estimate currencies: RUB · EUR · USD · KZT · BYN · UAH">Валюты сметы: RUB · EUR · USD · KZT · BYN · UAH</p></article>
       </div>
+      <div class="data-note"><div class="symbol">⌖</div><div><strong data-ru="Расчёт помогает планировать — он не заменяет проверку на объекте." data-en="Use estimates for planning, then verify on site.">Расчёт помогает планировать — он не заменяет проверку на объекте.</strong><p data-ru="Результат зависит от точности плана, назначений, характеристик материалов и введённых цен. Перед закупкой и началом работ проверьте размеры, нормы и расценки." data-en="Results depend on the plan, assignments, material specifications, and prices you enter. Verify dimensions, quantities, and rates before purchasing or starting work.">Результат зависит от точности плана, назначений, характеристик материалов и введённых цен. Перед закупкой и началом работ проверьте размеры, нормы и расценки.</p></div></div>
     </section>
 
     <section class="final shell" id="release">
-      <div class="eyebrow" style="justify-content:center" data-ru="Скоро" data-en="Coming soon">Скоро</div>
-      <h2 data-ru="Пусть у ремонта будет хороший план." data-en="Give your renovation a good plan.">Пусть у ремонта будет хороший план.</h2>
-      <p data-ru="RoomCost готовится к публикации в App Store. Информация о доступности и совместимых устройствах появится здесь после релиза." data-en="RoomCost is preparing for release on the App Store. Availability and compatible device details will be posted here at launch.">RoomCost готовится к публикации в App Store. Информация о доступности и совместимых устройствах появится здесь после релиза.</p>
-      <a class="button primary" href="#top"><span data-ru="Наверх" data-en="Back to top">Наверх</span><span aria-hidden="true">↑</span></a>
+      <div class="eyebrow" style="justify-content:center" data-ru="Релиз готовится" data-en="Release in preparation">Релиз готовится</div>
+      <h2 data-ru="Сначала план. Потом — ремонт по пунктам." data-en="Start with a plan. Take the renovation step by step.">Сначала план. Потом — ремонт по пунктам.</h2>
+      <p data-ru="RoomCost готовится к публикации в App Store. Ссылка на загрузку и актуальные системные требования появятся здесь после выхода приложения." data-en="RoomCost is being prepared for the App Store. The download link and current system requirements will be added here when the app is released.">RoomCost готовится к публикации в App Store. Ссылка на загрузку и актуальные системные требования появятся здесь после выхода приложения.</p>
+      <a class="button primary" href="#top"><span data-ru="Вернуться наверх" data-en="Back to top">Вернуться наверх</span><span aria-hidden="true">↑</span></a>
     </section>
   </main>
   <footer class="shell">
     <div><span class="foot-brand">RoomCost</span><span>　·　<span data-ru="Планирование ремонта" data-en="Renovation planning">Планирование ремонта</span></span></div>
-    <div class="foot-right" data-ru="Для iPhone и iPad · Доступность в App Store будет объявлена позже" data-en="For iPhone and iPad · App Store availability to be announced">Для iPhone и iPad · Доступность в App Store будет объявлена позже</div>
+    <nav class="foot-links"><a href="privacy.html" data-ru="Политика конфиденциальности" data-en="Privacy Policy">Политика конфиденциальности</a><a href="terms.html" data-ru="Условия использования" data-en="Terms of Use">Условия использования</a></nav>
+    <div data-ru="© RoomCost" data-en="© RoomCost">© RoomCost</div>
   </footer>
   <script>
-    const languageButton=document.getElementById("lang");
-    const nav=document.getElementById("nav");
-    const menu=document.getElementById("menu");
-    function setLanguage(lang){
-      document.documentElement.lang=lang;
-      document.querySelectorAll("[data-"+lang+"]").forEach(el=>{el.innerHTML=el.getAttribute("data-"+lang)});
-      languageButton.innerHTML=lang==="ru"?"<b>RU</b> / EN":"RU / <b>EN</b>";
-      try{localStorage.setItem("roomcost-language",lang)}catch{}
-    }
+    const languageButton=document.getElementById("lang"),nav=document.getElementById("nav"),menu=document.getElementById("menu");
+    function setLanguage(lang){document.documentElement.lang=lang;document.querySelectorAll("[data-"+lang+"]").forEach(el=>el.innerHTML=el.getAttribute("data-"+lang));languageButton.innerHTML=lang==="ru"?"<b>RU</b> / EN":"RU / <b>EN</b>";try{localStorage.setItem("roomcost-language",lang)}catch{}}
     languageButton.addEventListener("click",()=>setLanguage(document.documentElement.lang==="ru"?"en":"ru"));
     menu.addEventListener("click",()=>nav.classList.toggle("open"));
     nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>nav.classList.remove("open")));

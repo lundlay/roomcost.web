@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f4f1e9">
+  <meta name="description" content="Политика конфиденциальности RoomCost: проекты и iCloud, сканирование, карты, голосовой поиск и покупки.">
+  <link rel="canonical" href="https://roomcost.app/privacy.html">
+  <link rel="icon" href="app-icon.jpg" type="image/jpeg">
+  <title>Политика конфиденциальности — RoomCost</title>
+  <link rel="stylesheet" href="site.css">
+  <style>.lang-content[hidden]{display:none}</style>
+</head>
+<body>
+<header class="topbar shell">
+  <a class="brand" href="index.html"><img src="app-icon.jpg" alt=""><span>RoomCost</span></a>
+  <nav class="links"><a href="index.html#features">RoomCost</a><a href="terms.html" data-ru="Условия использования" data-en="Terms of Use">Условия использования</a></nav>
+  <button class="lang" id="lang" type="button" aria-label="Switch language"><b>RU</b> / EN</button>
+</header>
+<main class="shell legal">
+  <div class="eyebrow" data-ru="Юридическая информация" data-en="Legal">Юридическая информация</div>
+  <section class="lang-content" data-language="ru">
+    <h1>Политика конфиденциальности RoomCost</h1>
+    <p class="updated">Дата вступления в силу: 30 октября 2026 года</p>
+    <p><strong>Издатель приложения:</strong> Oleg Lavronov.<br><strong>Контакт по вопросам конфиденциальности:</strong> <a class="contact-email" data-user="oleg.lavronov" data-tag="roomcost" data-domain="gmail.com">oleg.lavronov+roomcost [at] gmail [dot] com</a></p>
+    <div class="callout"><strong>Кратко.</strong> RoomCost не требует учётную запись RoomCost и не использует собственный сервер, рекламную сеть или стороннюю аналитику. Данные проектов хранятся на устройстве и, если iCloud доступен, синхронизируются в частную базу CloudKit вашей учётной записи Apple. Некоторые выбранные функции обращаются к сервисам Apple — ниже описано какие.</div>
+
+    <h2>1. Область действия</h2>
+    <p>Эта политика описывает приложение RoomCost для iPhone и iPad и сайт roomcost.app. Она основана на текущей реализации приложения и сайта по состоянию на указанную выше дату. Обработка данных компанией Apple регулируется собственными документами Apple.</p>
+
+    <h2>2. Данные, которые вы добавляете в приложение</h2>
+    <p>В RoomCost можно сохранить имя проекта, адрес и дату; планы этажей, размеры комнат и стен, проёмы и мебель; выбранные работы, материалы, их характеристики и цены; фотографии ценников или образцов, если вы прикрепляете их; сметы и сведения об экспорте. Эти данные нужны, чтобы хранить проект и рассчитывать количества и стоимость.</p>
+    <p>RoomCost не передаёт эти записи на собственный сервер разработчика. Они сохраняются локально в приложении. Если на устройстве доступна учётная запись iCloud, приложение использует частную базу CloudKit контейнера RoomCost для синхронизации между вашими устройствами. Частная база принадлежит вашей учётной записи Apple; данные CloudKit учитываются в квоте хранилища iCloud.</p>
+
+    <h2>3. Камера, фотографии и сканирование</h2>
+    <ul>
+      <li><strong>Сканирование комнаты.</strong> На поддерживаемых устройствах с LiDAR приложение использует Apple RoomPlan, чтобы получить геометрию комнаты и импортировать её в план. Для этого нужен доступ к камере. RoomCost не загружает скан на свой сервер.</li>
+      <li><strong>Ценники и образцы.</strong> Вы можете сделать снимок камерой или выбрать конкретное изображение в системном выборе фотографий. Распознавание текста выполняет Apple Vision на устройстве. Снимок может быть сохранён в карточке материала, если вы сохраняете его в проекте/каталоге.</li>
+      <li>Разрешение на камеру можно изменить в настройках iOS. Выбор фотографии не даёт RoomCost общего доступа ко всей фототеке.</li>
+    </ul>
+
+    <h2>4. Карты, адреса и местоположение</h2>
+    <p>Если вы открываете выбор адреса на карте, RoomCost использует Apple MapKit для показа карты, поиска адреса и определения подписи выбранной точки. Если вы разрешили геолокацию или используете кнопку текущего местоположения, соответствующие координаты могут обрабатываться Apple для работы карты. Введённый адрес или поисковый запрос также передаётся сервису Apple Maps для поиска. RoomCost не отслеживает местоположение в фоне и не получает его, пока вы не используете эту функцию.</p>
+
+    <h2>5. Голосовой поиск</h2>
+    <p>Голосовой поиск — необязательный способ искать проекты. При его запуске приложение запрашивает доступ к микрофону и распознаванию речи. Если система поддерживает распознавание на устройстве, RoomCost требует использовать этот режим. Если он недоступен, системная служба распознавания речи Apple может отправлять аудио на серверы Apple для обработки. Приложение использует распознанный текст как поисковый запрос и останавливает запись после завершения поиска или по вашему действию. Обработка Apple регулируется политикой конфиденциальности Apple и настройками iOS.</p>
+
+    <h2>6. Покупки и экспорт</h2>
+    <p>Покупка PDF-экспорта проводится через Apple In‑App Purchase (StoreKit). RoomCost получает результат транзакции и связывает его с записью экспорта, чтобы открыть возможность поделиться соответствующей версией PDF. Разработчик не получает номер вашей платёжной карты и не обрабатывает платёжные реквизиты. Покупки и возвраты обрабатывает Apple по своим условиям.</p>
+    <p>PDF, файлы проектов, каталоги и модели USDZ формируются на устройстве. Если вы делитесь файлом, он передаётся выбранному вами приложению, человеку или месту хранения через системное меню iOS. Дальнейшая обработка файла регулируется правилами выбранного получателя.</p>
+
+    <h2>7. Сайт</h2>
+    <p>Сайт является статическим: на нём нет формы регистрации, рекламных трекеров или аналитических скриптов. Переключатель языка может сохранить ваш выбор в локальном хранилище браузера (localStorage); это значение остаётся в браузере и не отправляется RoomCost. Сайт размещается через GitHub Pages. GitHub может обрабатывать технические журналы запросов, включая IP-адрес, для безопасности и работы сервиса; применяется <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-notice">уведомление GitHub о конфиденциальности</a>.</p>
+
+    <h2>8. Хранение, удаление и выбор</h2>
+    <p>Данные проекта хранятся, пока вы не удалите проект или отдельные записи в приложении. Удаление проекта из RoomCost удаляет его комнаты и связанные данные; если включена синхронизация iCloud, изменение синхронизируется с вашими устройствами. Каталоги работ и материалов управляются отдельно. Удаление приложения само по себе может не удалить данные, уже синхронизированные в iCloud. Управляйте ими через приложение и настройки iCloud вашей учётной записи Apple. Apple может хранить резервные копии или технические записи по правилам своих сервисов.</p>
+    <p>Вы можете отказаться от камеры, микрофона, распознавания речи и геолокации в настройках iOS; тогда соответствующие функции будут недоступны. Для запроса о персональных данных или политике свяжитесь с издателем по контактам в начале документа.</p>
+
+    <h2>9. Дети и изменения политики</h2>
+    <p>RoomCost — инструмент планирования ремонта, не предназначенный специально для детей. При существенном изменении способов обработки данных мы обновим эту страницу и дату редакции. Перед публикацией новой версии приложения следует проверить, соответствует ли политика фактическим функциям и заполненным сведениям App Privacy в App Store Connect.</p>
+
+    <h2>10. Сервисы Apple</h2>
+    <p>Подробнее о том, как Apple обрабатывает данные в своих сервисах: <a href="https://www.apple.com/legal/privacy/">Политика конфиденциальности Apple</a>, <a href="https://developer.apple.com/documentation/cloudkit">CloudKit</a>, <a href="https://www.apple.com/legal/privacy/data/en/apple-maps/">Apple Maps</a> и <a href="https://developer.apple.com/documentation/speech">Speech</a>.</p>
+  </section>
+
+  <section class="lang-content" data-language="en" hidden>
+    <h1>RoomCost Privacy Policy</h1>
+    <p class="updated">Effective date: October 30, 2026</p>
+    <p><strong>App publisher:</strong> Oleg Lavronov.<br><strong>Privacy contact:</strong> <a class="contact-email" data-user="oleg.lavronov" data-tag="roomcost" data-domain="gmail.com">oleg.lavronov+roomcost [at] gmail [dot] com</a></p>
+    <div class="callout"><strong>In short.</strong> RoomCost does not require a RoomCost account and does not use its own server, advertising network, or third-party analytics. Project data is stored on your device and, when iCloud is available, synced to the private CloudKit database for your Apple Account. Some features you choose use Apple services, as described below.</div>
+
+    <h2>1. Scope</h2>
+    <p>This policy covers the RoomCost app for iPhone and iPad and the roomcost.app website. It describes the app and website as currently implemented on the effective date above. Apple’s handling of data in Apple services is governed by Apple’s own documents.</p>
+
+    <h2>2. Information you add to the app</h2>
+    <p>RoomCost can store project names, addresses, and dates; floor plans, room and wall dimensions, openings, and furniture; assigned work, materials, their specifications and prices; photos of price tags or samples that you attach; estimates and export records. This information is used to keep your project and calculate quantities and costs.</p>
+    <p>RoomCost does not send these records to a developer-operated server. They are saved locally in the app. If an iCloud account is available on your device, the app uses the RoomCost CloudKit container’s private database to sync across your devices. The private database belongs to your Apple Account; CloudKit data counts toward your iCloud storage quota.</p>
+
+    <h2>3. Camera, photos, and scanning</h2>
+    <ul>
+      <li><strong>Room scanning.</strong> On supported LiDAR devices, the app uses Apple RoomPlan to capture room geometry and import it into your plan. Camera access is required. RoomCost does not upload scans to a developer-operated server.</li>
+      <li><strong>Price tags and samples.</strong> You can take a photo or select a specific image using the system photo picker. Apple Vision recognizes text on device. A photo may be saved with a material entry if you choose to keep it in the project or catalog.</li>
+      <li>You can change camera permission in iOS Settings. Selecting an image does not give RoomCost general access to your photo library.</li>
+    </ul>
+
+    <h2>4. Maps, addresses, and location</h2>
+    <p>When you open the address picker, RoomCost uses Apple MapKit to display a map, search for an address, and resolve the selected location. If you grant location permission or use the current-location control, Apple may process the relevant coordinates to provide the map. An address or search term you enter is also sent to Apple Maps for search. RoomCost does not track location in the background and does not access it unless you use this feature.</p>
+
+    <h2>5. Voice search</h2>
+    <p>Voice search is an optional way to find projects. When you start it, the app requests microphone and speech recognition permission. If the system supports on-device recognition, RoomCost requires that mode. If it is unavailable, Apple’s system speech recognition service may send audio to Apple servers for processing. The app uses the recognized text as a search query and stops recording when recognition ends or you stop it. Apple’s processing is governed by Apple’s privacy policy and your iOS settings.</p>
+
+    <h2>6. Purchases and exports</h2>
+    <p>PDF export is purchased through Apple In‑App Purchase (StoreKit). RoomCost receives the transaction result and links it to an export record so you can share the corresponding PDF version. The developer does not receive your payment card number or process payment credentials. Apple handles payments and refunds under its terms.</p>
+    <p>PDFs, project files, catalogs, and USDZ models are created on your device. If you share a file, it is passed to the app, person, or storage destination you select through the iOS share sheet. The recipient’s rules govern its further handling.</p>
+
+    <h2>7. Website</h2>
+    <p>The website is static: it has no registration form, advertising trackers, or analytics scripts. The language switch may save your choice in your browser’s local storage (localStorage); that value stays in your browser and is not sent to RoomCost. The site is hosted with GitHub Pages. GitHub may process technical request logs, including IP addresses, for service operation and security; see <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-notice">GitHub’s Privacy Statement</a>.</p>
+
+    <h2>8. Retention, deletion, and choices</h2>
+    <p>Project data remains until you delete the project or individual records in the app. Deleting a project from RoomCost deletes its rooms and related data; if iCloud sync is enabled, the change syncs to your devices. Work and material catalogs are managed separately. Deleting the app alone may not remove data already synced to iCloud. Manage it through the app and your Apple Account’s iCloud settings. Apple may retain backups or technical records under its service policies.</p>
+    <p>You can deny camera, microphone, speech recognition, or location permission in iOS Settings; the related feature will then be unavailable. For questions or requests about personal data or this policy, contact the publisher using the details at the beginning of this document.</p>
+
+    <h2>9. Children and changes</h2>
+    <p>RoomCost is a renovation planning tool and is not specifically designed for children. If our data practices materially change, we will update this page and its revision date. Before submitting a new app version, the policy should be checked against the actual features and the App Privacy details in App Store Connect.</p>
+
+    <h2>10. Apple services</h2>
+    <p>Learn more about how Apple handles data in its services: <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>, <a href="https://developer.apple.com/documentation/cloudkit">CloudKit</a>, <a href="https://www.apple.com/legal/privacy/data/en/apple-maps/">Apple Maps</a>, and <a href="https://developer.apple.com/documentation/speech">Speech</a>.</p>
+  </section>
+</main>
+<footer class="shell"><div><a class="foot-brand" href="index.html">RoomCost</a></div><nav class="foot-links"><a href="privacy.html" data-ru="Конфиденциальность" data-en="Privacy">Конфиденциальность</a><a href="terms.html" data-ru="Условия" data-en="Terms">Условия</a></nav><a href="index.html" data-ru="На главную" data-en="Home">На главную</a></footer>
+<script>
+const b=document.getElementById("lang");function setLanguage(l){document.documentElement.lang=l;document.querySelectorAll("[data-language]").forEach(x=>x.hidden=x.dataset.language!==l);document.querySelectorAll("[data-"+l+"]").forEach(x=>x.innerHTML=x.getAttribute("data-"+l));b.innerHTML=l==="ru"?"<b>RU</b> / EN":"RU / <b>EN</b>";try{localStorage.setItem("roomcost-language",l)}catch{}}
+b.addEventListener("click",()=>setLanguage(document.documentElement.lang==="ru"?"en":"ru"));document.querySelectorAll(".contact-email").forEach(a=>{const email=a.dataset.user+"+"+a.dataset.tag+"@"+a.dataset.domain;a.href="mailto:"+email;a.setAttribute("aria-label","Email RoomCost support")});try{setLanguage(localStorage.getItem("roomcost-language")==="en"?"en":"ru")}catch{setLanguage("ru")}
+</script>
+</body>
+</html>
