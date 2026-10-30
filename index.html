@@ -2,88 +2,267 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f4ef">
-  <meta name="description" content="RoomCost — приложение для планировки помещений и расчёта стоимости ремонта.">
-  <title>RoomCost — ремонт начинается с плана</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f6f2">
+  <meta name="description" content="RoomCost — приложение для планировки помещений, расчёта работ и материалов и подготовки сметы ремонта на iPhone и iPad.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RoomCost — планируйте ремонт целиком">
+  <meta property="og:description" content="План помещений, работы, материалы и смета ремонта в одном приложении для iPhone и iPad.">
+  <meta property="og:url" content="https://lundlay.github.io/roomcost.web/">
+  <title>RoomCost — планируйте ремонт целиком</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { color-scheme: light; --ink:#202522; --muted:#68716b; --green:#3d674f; --line:#dfe3db; --paper:#f5f4ef; --white:#fff; }
-    * { box-sizing:border-box; }
-    body { margin:0; background:var(--paper); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
-    a { color:inherit; }
-    .wrap { width:min(1120px, calc(100% - 48px)); margin:auto; }
-    header { height:82px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); }
-    .brand { display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:-.03em; font-size:20px; }
-    .mark { width:36px; height:36px; border-radius:11px; display:grid; place-items:center; background:var(--green); color:white; }
-    .mark svg { width:22px; height:22px; }
-    .nav { color:var(--muted); text-decoration:none; font-size:14px; }
-    .hero { display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center; padding:84px 0 90px; }
-    .eyebrow { color:var(--green); font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
-    h1 { font-size:clamp(44px,6vw,72px); line-height:.99; letter-spacing:-.065em; max-width:620px; margin:20px 0 24px; }
-    .lead { color:var(--muted); font-size:18px; line-height:1.65; max-width:500px; margin:0; }
-    .note { display:inline-flex; gap:9px; align-items:center; margin-top:32px; border:1px solid var(--line); border-radius:99px; padding:11px 15px; color:#49524c; font-size:13px; }
-    .dot { width:8px; height:8px; background:#d09a4c; border-radius:50%; }
-    .visual { min-height:390px; border:1px solid #e3e5de; border-radius:26px; background:#eeeee8; display:grid; place-items:center; overflow:hidden; position:relative; }
-    .visual:before,.visual:after { content:""; position:absolute; width:230px; height:230px; border:1px solid #dfe2d9; border-radius:50%; }
-    .visual:after { width:320px; height:320px; }
-    .plan { z-index:1; width:min(76%,350px); background:#fff; border:1px solid #d8ded5; border-radius:18px; padding:22px; box-shadow:0 24px 55px #35463719; transform:rotate(-3deg); }
-    .plan-top { display:flex; justify-content:space-between; align-items:center; font-size:12px; color:var(--muted); margin-bottom:17px; }
-    .plan-top strong { color:var(--ink); font-size:14px; }
-    .floor { height:205px; border:5px solid #556c5b; position:relative; background:#f8f8f4; }
-    .room { position:absolute; border:3px solid #556c5b; background:#eef2ea; }
-    .r1 { left:0; top:0; width:56%; height:57%; border-left:0; border-top:0; }
-    .r2 { right:0; top:0; width:44%; height:57%; border-right:0; border-top:0; }
-    .r3 { left:0; bottom:0; width:42%; height:43%; border-left:0; border-bottom:0; }
-    .r4 { right:0; bottom:0; width:58%; height:43%; border-right:0; border-bottom:0; }
-    .door { position:absolute; width:35px; height:3px; background:#d7a45e; right:31%; top:56%; }
-    .measure { position:absolute; left:0; right:0; bottom:-18px; color:#818b82; text-align:center; font-size:10px; letter-spacing:.08em; }
-    .summary { display:flex; justify-content:space-between; padding-top:28px; font-size:11px; color:var(--muted); }
-    .summary b { display:block; margin-top:4px; color:var(--ink); font-size:17px; }
-    .section { border-top:1px solid var(--line); padding:58px 0 74px; }
-    .section h2 { font-size:clamp(28px,4vw,42px); letter-spacing:-.05em; margin:0 0 34px; }
-    .features { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-    .card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:24px; min-height:180px; }
-    .num { color:var(--green); font-size:12px; font-weight:700; letter-spacing:.1em; }
-    .card h3 { font-size:18px; margin:23px 0 9px; letter-spacing:-.025em; }
-    .card p { font-size:14px; line-height:1.6; color:var(--muted); margin:0; }
-    footer { padding:24px 0 38px; color:var(--muted); font-size:12px; border-top:1px solid var(--line); }
-    @media (max-width:760px) { .wrap{width:min(100% - 36px,560px)} header{height:70px}.hero{grid-template-columns:1fr;gap:42px;padding:62px 0}.visual{min-height:340px}.features{grid-template-columns:1fr}.section{padding:45px 0 55px}.card{min-height:auto}.card h3{margin-top:15px} }
+    :root{--bg:#f6f6f2;--paper:#fff;--ink:#202720;--muted:#727b72;--green:#315f49;--green2:#dce9df;--line:#e3e8e1;--orange:#d18b4e;--shadow:0 24px 70px #26382a18}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .shell{width:min(1160px,calc(100% - 56px));margin:auto}
+    .topbar{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:11px;font:800 20px Manrope,sans-serif;letter-spacing:-.06em}
+    .brand-icon{width:36px;height:36px;border-radius:12px;background:var(--green);display:grid;place-items:center;color:white}
+    .brand-icon svg{width:21px}
+    .links{display:flex;align-items:center;gap:32px;color:#5f695f;font-size:13px}
+    .links a:hover{color:var(--green)}
+    .actions{display:flex;align-items:center;gap:12px}
+    .lang{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:99px;padding:8px 11px;font-size:11px;cursor:pointer}
+    .lang b{color:var(--ink)}
+    .menu{display:none;border:0;background:none;color:var(--ink);font-size:23px}
+    .hero{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center;padding:87px 0 86px;min-height:610px}
+    .eyebrow{display:flex;align-items:center;gap:10px;color:var(--green);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+    .eyebrow:before{content:"";height:1px;width:26px;background:var(--green)}
+    h1,h2,h3,p{margin-top:0}
+    h1,h2,h3{font-family:Manrope,"DM Sans",sans-serif}
+    h1{font-size:clamp(48px,6.1vw,78px);line-height:.99;letter-spacing:-.075em;font-weight:600;margin:24px 0}
+    h1 em{font-style:normal;color:var(--green)}
+    .intro{font-size:17px;line-height:1.7;color:var(--muted);max-width:480px;margin-bottom:28px}
+    .button-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .button{height:48px;padding:0 19px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:600;font-size:13px;transition:transform .2s,background .2s}
+    .button:hover{transform:translateY(-2px)}
+    .primary{background:var(--green);color:#fff}
+    .primary:hover{background:#274d3a}
+    .secondary{border:1px solid #d8ded6;background:transparent}
+    .secondary:hover{background:#fff}
+    .release{display:flex;align-items:center;gap:9px;margin-top:25px;color:var(--muted);font-size:12px}
+    .pulse{width:7px;height:7px;background:#d18b4e;border-radius:50%;box-shadow:0 0 0 4px #d18b4e20}
+    .art{min-height:435px;position:relative;display:grid;place-items:center}
+    .art-glow{position:absolute;width:360px;height:360px;border-radius:50%;background:#e7eee5;filter:blur(1px)}
+    .device{position:relative;width:min(76%,335px);height:415px;border:7px solid #303832;border-radius:37px;background:#fdfdfa;padding:15px;box-shadow:0 30px 75px #21362625;transform:rotate(4deg)}
+    .island{width:72px;height:17px;background:#303832;border-radius:20px;margin:-5px auto 14px}
+    .screen-head{display:flex;justify-content:space-between;align-items:center;font-size:10px;color:#6d786f;padding:2px 3px 13px}
+    .screen-head strong{color:var(--ink);font:700 13px Manrope}
+    .screen-title{font:700 20px Manrope;letter-spacing:-.05em;margin:2px 2px 12px}
+    .screen-plan{height:204px;border:1px solid #dfe5dc;border-radius:13px;background:#f5f7f2;position:relative;overflow:hidden}
+    .screen-plan:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#e8ede6 1px,transparent 1px),linear-gradient(90deg,#e8ede6 1px,transparent 1px);background-size:18px 18px}
+    .walls{position:absolute;left:17%;right:15%;top:15%;bottom:15%;border:4px solid #728477;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1.2fr .8fr}
+    .walls span{border:2px solid #829386;background:#e6eee5}
+    .walls span:nth-child(1){border-left:0;border-top:0}
+    .walls span:nth-child(2){border-right:0;border-top:0}
+    .walls span:nth-child(3){border-left:0;border-bottom:0}
+    .walls span:nth-child(4){border-right:0;border-bottom:0}
+    .measure-line{position:absolute;left:17%;right:15%;top:10%;height:1px;background:#c9965c}
+    .measure-line:after{content:"5,40 м";position:absolute;right:0;top:-14px;font-size:8px;color:#a06d39}
+    .screen-tabs{display:flex;gap:7px;margin:12px 0}
+    .screen-tabs span{background:#edf2eb;color:#526957;border-radius:20px;padding:5px 9px;font-size:8px}
+    .estimate-card{border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff}
+    .estimate-head{display:flex;justify-content:space-between;font-size:9px;color:var(--muted);padding-bottom:8px;border-bottom:1px solid var(--line)}
+    .estimate-row{display:flex;justify-content:space-between;padding-top:9px;font-size:9px}
+    .estimate-row strong{font-size:10px}
+    .float-card{position:absolute;background:#fff;border:1px solid #e3e8e1;border-radius:13px;box-shadow:var(--shadow);padding:13px 15px}
+    .float-card small{display:block;color:var(--muted);font-size:9px;margin-bottom:5px}
+    .float-card strong{font:700 14px Manrope}
+    .float-one{right:0;top:72px;transform:rotate(-3deg)}
+    .float-two{left:0;bottom:47px;transform:rotate(3deg)}
+    .float-icon{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:7px;background:var(--green2);color:var(--green);margin-right:6px;vertical-align:middle}
+    .facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
+    .fact{display:flex;align-items:center;justify-content:center;gap:11px;border-right:1px solid var(--line);font-size:12px;color:#566057}
+    .fact:last-child{border:0}
+    .fact-icon{color:var(--green);font-size:17px}
+    .section{padding:105px 0}
+    .section-head{max-width:620px;margin-bottom:43px}
+    .section-head h2{font-size:clamp(34px,4.5vw,54px);line-height:1.05;letter-spacing:-.065em;font-weight:600;margin:19px 0}
+    .section-head p{font-size:15px;line-height:1.7;color:var(--muted);max-width:520px}
+    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+    .feature{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:25px;min-height:216px;transition:transform .2s,border .2s}
+    .feature:hover{transform:translateY(-3px);border-color:#bdcdbf}
+    .feature-top{display:flex;justify-content:space-between;align-items:center}
+    .feature-icon{width:39px;height:39px;display:grid;place-items:center;border-radius:12px;background:var(--green2);color:var(--green);font-size:19px}
+    .feature-num{font-size:10px;color:#a0a99f;letter-spacing:.1em}
+    .feature h3{font-size:17px;letter-spacing:-.04em;margin:24px 0 9px}
+    .feature p{font-size:12px;line-height:1.65;color:var(--muted);margin:0}
+    .dark{background:#26382e;color:#f2f5f0}
+    .dark .eyebrow{color:#b9d1bf}
+    .dark .eyebrow:before{background:#b9d1bf}
+    .dark .section-head p{color:#b9c4ba}
+    .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+    .flow:before{content:"";position:absolute;left:8%;right:8%;top:22px;border-top:1px solid #607466}
+    .step{position:relative;padding:0 22px 0 0}
+    .step-index{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:#3e5848;border:1px solid #68806e;color:#e4eee5;font:600 12px Manrope;position:relative}
+    .step h3{font-size:16px;letter-spacing:-.03em;margin:22px 0 8px}
+    .step p{color:#b9c4ba;font-size:12px;line-height:1.65;max-width:220px}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+    .plan-art{min-height:340px;border-radius:20px;background:#e9eee7;position:relative;overflow:hidden;display:grid;place-items:center}
+    .blueprint{width:68%;height:65%;border:7px solid #526957;display:grid;grid-template-columns:1.2fr .8fr;grid-template-rows:1fr .8fr;transform:rotate(-5deg);box-shadow:0 20px 45px #293e2e20}
+    .blueprint span{background:#f9faf6;border:3px solid #718575;display:grid;place-items:center;color:#77857a;font-size:9px}
+    .blueprint span:nth-child(1){border-left:0;border-top:0}
+    .blueprint span:nth-child(2){border-right:0;border-top:0}
+    .blueprint span:nth-child(3){border-left:0;border-bottom:0}
+    .blueprint span:nth-child(4){border-right:0;border-bottom:0}
+    .pin{position:absolute;right:12%;top:15%;background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 13px;box-shadow:var(--shadow);font-size:10px;color:var(--muted)}
+    .pin b{display:block;color:var(--ink);font:700 13px Manrope;margin-top:3px}
+    .checklist{list-style:none;padding:0;margin:27px 0 0;display:grid;gap:13px}
+    .checklist li{display:flex;gap:11px;color:#566057;font-size:13px;line-height:1.5}
+    .check{color:var(--green);font-weight:700}
+    .price-box{border:1px solid var(--line);background:#fff;border-radius:15px;padding:23px;margin-top:25px}
+    .price-box strong{font:700 14px Manrope}
+    .price-box p{font-size:12px;line-height:1.6;color:var(--muted);margin:8px 0 0}
+    .final{padding:82px 0 90px;text-align:center}
+    .final h2{font-size:clamp(36px,5vw,58px);line-height:1.04;letter-spacing:-.07em;font-weight:600;max-width:700px;margin:19px auto}
+    .final p{color:var(--muted);font-size:14px;line-height:1.7;max-width:500px;margin:0 auto 25px}
+    footer{border-top:1px solid var(--line);padding:25px 0 35px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:var(--muted);font-size:11px}
+    .foot-brand{color:var(--ink);font:800 14px Manrope;letter-spacing:-.04em}
+    @media(max-width:800px){.shell{width:calc(100% - 38px)}.links{gap:16px}.hero{gap:10px;padding:62px 0}.art{min-height:390px}.device{width:74%;height:385px}.screen-plan{height:180px}.feature-grid{grid-template-columns:repeat(2,1fr)}.section{padding:78px 0}.split{gap:35px}.float-one{right:-3px}.float-two{left:-4px}}
+    @media(max-width:620px){.shell{width:calc(100% - 34px)}.topbar{height:70px}.links{display:none;position:absolute;z-index:5;top:70px;left:0;right:0;padding:18px;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.links.open{display:flex}.menu{display:block}.hero{grid-template-columns:1fr;padding:58px 0 45px}.hero-copy{max-width:540px}.intro{font-size:15px}.art{min-height:370px;margin-top:4px}.device{width:min(78%,320px);height:370px}.screen-plan{height:168px}.float-one{right:0;top:48px}.float-two{left:0;bottom:26px}.facts{grid-template-columns:1fr 1fr;gap:0}.fact{justify-content:flex-start;padding:13px 6px;border-right:0;font-size:11px}.fact:nth-child(odd){border-right:1px solid var(--line)}.fact:nth-child(-n+2){border-bottom:1px solid var(--line)}.section{padding:69px 0}.section-head{margin-bottom:30px}.feature-grid{grid-template-columns:1fr;gap:10px}.feature{min-height:auto;padding:21px}.feature h3{margin-top:18px}.flow{grid-template-columns:1fr 1fr;gap:28px 12px}.flow:before{display:none}.step{padding:0}.step p{font-size:11px}.split{grid-template-columns:1fr;gap:32px}.plan-art{min-height:275px;order:2}.split-copy{order:1}.final{padding:67px 0}.final p{font-size:13px}footer{align-items:flex-start;flex-direction:column}.foot-right{line-height:1.6}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
   </style>
 </head>
 <body>
-  <header class="wrap">
-    <a class="brand" href="#top" aria-label="RoomCost — главная">
-      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h7v7H4zM13 4h7v5h-7zM13 11h7v9h-7zM4 13h7v7H4z"/></svg></span>
+  <header class="topbar shell">
+    <a class="brand" href="#top" aria-label="RoomCost">
+      <span class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h7v7H4zM13 4h7v5h-7zM13 11h7v9h-7zM4 13h7v7H4z"/></svg></span>
       RoomCost
     </a>
-    <a class="nav" href="#features">Возможности</a>
+    <nav class="links" id="nav">
+      <a href="#features" data-ru="Возможности" data-en="Features">Возможности</a>
+      <a href="#how" data-ru="Как это работает" data-en="How it works">Как это работает</a>
+      <a href="#estimate" data-ru="Смета" data-en="Estimate">Смета</a>
+    </nav>
+    <div class="actions">
+      <button class="lang" id="lang" type="button" aria-label="Switch language"><b>RU</b> / EN</button>
+      <button class="menu" id="menu" type="button" aria-label="Open menu">☰</button>
+    </div>
   </header>
-  <main id="top" class="wrap">
-    <section class="hero">
-      <div>
-        <div class="eyebrow">Планируйте ремонт с ясностью</div>
-        <h1>Сначала план.<br>Затем смета.</h1>
-        <p class="lead">RoomCost помогает нарисовать план помещения, собрать работы и материалы и увидеть расчёт стоимости ремонта в одном проекте.</p>
-        <div class="note"><span class="dot"></span> Страница проекта · приложение в разработке</div>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <div class="eyebrow" data-ru="Планирование ремонта для iPhone и iPad" data-en="Renovation planning for iPhone and iPad">Планирование ремонта для iPhone и iPad</div>
+        <h1 data-ru="Ремонт,<br>собранный <em>в одном месте.</em>" data-en="Your renovation,<br><em>all in one place.</em>">Ремонт,<br>собранный <em>в одном месте.</em></h1>
+        <p class="intro" data-ru="Нарисуйте план, назначьте работы и материалы, посмотрите расчёт по комнатам и всему проекту. RoomCost помогает пройти путь от первого замера до понятной сметы." data-en="Draw a floor plan, assign work and materials, and see costs room by room or across the whole project. RoomCost brings the process from first measurements to a clear estimate together.">Нарисуйте план, назначьте работы и материалы, посмотрите расчёт по комнатам и всему проекту. RoomCost помогает пройти путь от первого замера до понятной сметы.</p>
+        <div class="button-row">
+          <a class="button primary" href="#features"><span data-ru="Изучить возможности" data-en="Explore features">Изучить возможности</span><span aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="#release"><span data-ru="О релизе" data-en="Release info">О релизе</span></a>
+        </div>
+        <div class="release"><span class="pulse"></span><span data-ru="Готовим приложение к публикации в App Store" data-en="Getting ready for the App Store">Готовим приложение к публикации в App Store</span></div>
       </div>
-      <div class="visual" role="img" aria-label="Иллюстрация плана квартиры и расчёта">
-        <div class="plan">
-          <div class="plan-top"><strong>Моя квартира</strong><span>План этажа</span></div>
-          <div class="floor"><i class="room r1"></i><i class="room r2"></i><i class="room r3"></i><i class="room r4"></i><i class="door"></i><span class="measure">ПЛАН ПОМЕЩЕНИЙ</span></div>
-          <div class="summary"><span>Работы и материалы<b>Смета проекта</b></span><span>Формат<b>PDF</b></span></div>
+      <div class="art" aria-label="Интерфейс RoomCost: план комнаты и смета">
+        <div class="art-glow"></div>
+        <div class="device">
+          <div class="island"></div>
+          <div class="screen-head"><strong>RoomCost</strong><span data-ru="Этаж 1　⌄" data-en="Floor 1　⌄">Этаж 1　⌄</span></div>
+          <div class="screen-title" data-ru="Моя квартира" data-en="My apartment">Моя квартира</div>
+          <div class="screen-plan"><div class="measure-line"></div><div class="walls"><span></span><span></span><span></span><span></span></div></div>
+          <div class="screen-tabs"><span data-ru="План" data-en="Plan">План</span><span>3D</span><span data-ru="Комнаты" data-en="Rooms">Комнаты</span></div>
+          <div class="estimate-card">
+            <div class="estimate-head"><span data-ru="СМЕТА ПРОЕКТА" data-en="PROJECT ESTIMATE">СМЕТА ПРОЕКТА</span><span data-ru="Все комнаты" data-en="All rooms">Все комнаты</span></div>
+            <div class="estimate-row"><span data-ru="Работы" data-en="Work">Работы</span><strong>₽ 128 400</strong></div>
+            <div class="estimate-row"><span data-ru="Материалы" data-en="Materials">Материалы</span><strong>₽ 86 250</strong></div>
+          </div>
+        </div>
+        <div class="float-card float-one"><small data-ru="ПЛОЩАДЬ СТЕН" data-en="WALL AREA">ПЛОЩАДЬ СТЕН</small><strong>42,8 м²</strong></div>
+        <div class="float-card float-two"><small data-ru="МАТЕРИАЛЫ" data-en="MATERIALS">МАТЕРИАЛЫ</small><strong><span class="float-icon">✓</span><span data-ru="Посчитаны" data-en="Calculated">Посчитаны</span></strong></div>
+      </div>
+    </section>
+
+    <section class="facts shell" aria-label="Ключевые возможности">
+      <div class="fact"><span class="fact-icon">⌗</span><span data-ru="План и размеры" data-en="Plans and dimensions">План и размеры</span></div>
+      <div class="fact"><span class="fact-icon">◫</span><span data-ru="Просмотр в 3D" data-en="3D visualization">Просмотр в 3D</span></div>
+      <div class="fact"><span class="fact-icon">∑</span><span data-ru="Расчёт материалов" data-en="Material calculation">Расчёт материалов</span></div>
+      <div class="fact"><span class="fact-icon">↗</span><span data-ru="Экспорт документов" data-en="Document export">Экспорт документов</span></div>
+    </section>
+
+    <section class="section shell" id="features">
+      <div class="section-head">
+        <div class="eyebrow" data-ru="Инструменты проекта" data-en="Project tools">Инструменты проекта</div>
+        <h2 data-ru="Всё начинается<br>с плана помещения." data-en="Every renovation<br>starts with a floor plan.">Всё начинается<br>с плана помещения.</h2>
+        <p data-ru="Создавайте проект поэтапно: от геометрии комнаты до списка покупок. Данные и расчёты связаны между собой, поэтому изменения плана отражаются в смете." data-en="Build a project step by step, from room geometry to a shopping list. Plans and calculations work together, so changes to a room flow through to the estimate.">Создавайте проект поэтапно: от геометрии комнаты до списка покупок. Данные и расчёты связаны между собой, поэтому изменения плана отражаются в смете.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature"><div class="feature-top"><span class="feature-icon">⌗</span><span class="feature-num">01</span></div><h3 data-ru="Планы и замеры" data-en="Plans and measurements">Планы и замеры</h3><p data-ru="Рисуйте комнаты, задавайте размеры стен и проёмов, размещайте двери, окна и мебель. Работайте с этажами и планом целого проекта." data-en="Draw rooms, set wall and opening dimensions, and place doors, windows, and furniture. Organize floors across a complete project.">Рисуйте комнаты, задавайте размеры стен и проёмов, размещайте двери, окна и мебель. Работайте с этажами и планом целого проекта.</p></article>
+        <article class="feature"><div class="feature-top"><span class="feature-icon">⌁</span><span class="feature-num">02</span></div><h3 data-ru="Сканирование помещений" data-en="Room scanning">Сканирование помещений</h3><p data-ru="На совместимых устройствах с LiDAR сканируйте комнату или несколько помещений и переносите результат в план." data-en="On compatible LiDAR devices, scan a room or several spaces and bring the result into your floor plan.">На совместимых устройствах с LiDAR сканируйте комнату или несколько помещений и переносите результат в план.</p></article>
+        <article class="feature"><div class="feature-top"><span class="feature-icon">◩</span><span class="feature-num">03</span></div><h3 data-ru="План в 2D и 3D" data-en="Plan in 2D and 3D">План в 2D и 3D</h3><p data-ru="Переключайтесь между чертежом и объёмной моделью этажа. Осматривайте расположение комнат, проёмов и мебели." data-en="Switch between a floor plan and a 3D floor model. Inspect how rooms, openings, and furniture fit together.">Переключайтесь между чертежом и объёмной моделью этажа. Осматривайте расположение комнат, проёмов и мебели.</p></article>
+        <article class="feature"><div class="feature-top"><span class="feature-icon">↗</span><span class="feature-num">04</span></div><h3 data-ru="Работы и расценки" data-en="Work and pricing">Работы и расценки</h3><p data-ru="Соберите свой каталог работ и цены. Назначайте работы комнатам — количества рассчитываются по геометрии и вашим настройкам." data-en="Create a work catalog and set your own prices. Assign work to rooms and calculate quantities from geometry and your settings.">Соберите свой каталог работ и цены. Назначайте работы комнатам — количества рассчитываются по геометрии и вашим настройкам.</p></article>
+        <article class="feature"><div class="feature-top"><span class="feature-icon">▤</span><span class="feature-num">05</span></div><h3 data-ru="Материалы и покупки" data-en="Materials and shopping">Материалы и покупки</h3><p data-ru="Добавляйте материалы с параметрами расхода и ценой. Получайте сводный список покупок с округлением до упаковок." data-en="Add materials with coverage details and prices. Get a combined shopping list rounded to whole packages.">Добавляйте материалы с параметрами расхода и ценой. Получайте сводный список покупок с округлением до упаковок.</p></article>
+        <article class="feature"><div class="feature-top"><span class="feature-icon">▧</span><span class="feature-num">06</span></div><h3 data-ru="Сканирование ценников" data-en="Price tag scanning">Сканирование ценников</h3><p data-ru="Сфотографируйте ценник или выберите снимок. RoomCost распознает текст, чтобы быстрее заполнить карточку материала." data-en="Photograph a price tag or choose an image. RoomCost recognizes the text to help fill in a material entry faster.">Сфотографируйте ценник или выберите снимок. RoomCost распознает текст, чтобы быстрее заполнить карточку материала.</p></article>
+      </div>
+    </section>
+
+    <section class="section dark" id="how">
+      <div class="shell">
+        <div class="section-head">
+          <div class="eyebrow" data-ru="Понятный процесс" data-en="A clear process">Понятный процесс</div>
+          <h2 data-ru="От первого контура<br>до общей стоимости." data-en="From the first outline<br>to the total cost.">От первого контура<br>до общей стоимости.</h2>
+          <p data-ru="RoomCost помогает держать основные части ремонта рядом и видеть, из чего складывается итог." data-en="RoomCost keeps the key parts of a renovation together and shows what goes into the total.">RoomCost помогает держать основные части ремонта рядом и видеть, из чего складывается итог.</p>
+        </div>
+        <div class="flow">
+          <article class="step"><div class="step-index">01</div><h3 data-ru="Создайте проект" data-en="Create a project">Создайте проект</h3><p data-ru="Добавьте этажи и комнаты, нарисуйте план или начните со сканирования." data-en="Add floors and rooms, draw a plan, or start with a scan.">Добавьте этажи и комнаты, нарисуйте план или начните со сканирования.</p></article>
+          <article class="step"><div class="step-index">02</div><h3 data-ru="Настройте работы" data-en="Set up the work">Настройте работы</h3><p data-ru="Выберите работы для стен, пола и потолка. Укажите свои расценки." data-en="Choose work for walls, floors, and ceilings. Enter your own rates.">Выберите работы для стен, пола и потолка. Укажите свои расценки.</p></article>
+          <article class="step"><div class="step-index">03</div><h3 data-ru="Добавьте материалы" data-en="Add materials">Добавьте материалы</h3><p data-ru="Свяжите материалы с работами и проверьте расчёт количества и упаковок." data-en="Link materials to work and review quantities and package counts.">Свяжите материалы с работами и проверьте расчёт количества и упаковок.</p></article>
+          <article class="step"><div class="step-index">04</div><h3 data-ru="Изучите смету" data-en="Review the estimate">Изучите смету</h3><p data-ru="Сравните стоимость по комнатам и проекту. Подготовьте PDF или 3D-модель." data-en="Review costs by room and project. Prepare a PDF or a 3D model.">Сравните стоимость по комнатам и проекту. Подготовьте PDF или 3D-модель.</p></article>
         </div>
       </div>
     </section>
-    <section class="section" id="features">
-      <div class="eyebrow">В одном проекте</div>
-      <h2>От помещения до расчёта</h2>
-      <div class="features">
-        <article class="card"><span class="num">01 / ПЛАН</span><h3>Планировка комнат</h3><p>Создавайте план этажа, задавайте размеры и отмечайте двери, окна и другие элементы.</p></article>
-        <article class="card"><span class="num">02 / РАБОТЫ</span><h3>Работы и материалы</h3><p>Назначайте работы помещениям, добавляйте материалы и указывайте собственные цены.</p></article>
-        <article class="card"><span class="num">03 / СМЕТА</span><h3>Общий расчёт</h3><p>Смотрите количества и стоимость по комнатам и проекту. Подготовьте смету для экспорта в PDF.</p></article>
+
+    <section class="section shell split" id="estimate">
+      <div class="plan-art" aria-label="Схема плана квартиры">
+        <div class="blueprint"><span data-ru="ГОСТИНАЯ" data-en="LIVING ROOM">ГОСТИНАЯ</span><span data-ru="КУХНЯ" data-en="KITCHEN">КУХНЯ</span><span data-ru="СПАЛЬНЯ" data-en="BEDROOM">СПАЛЬНЯ</span><span data-ru="ВАННАЯ" data-en="BATHROOM">ВАННАЯ</span></div>
+        <div class="pin"><span data-ru="ПЛОЩАДЬ ЭТАЖА" data-en="FLOOR AREA">ПЛОЩАДЬ ЭТАЖА</span><b>68,4 м²</b></div>
+      </div>
+      <div class="split-copy">
+        <div class="eyebrow" data-ru="Расчёт, которому можно следовать" data-en="An estimate you can follow">Расчёт, которому можно следовать</div>
+        <div class="section-head" style="margin:18px 0 0">
+          <h2 data-ru="Видно, откуда берётся итог." data-en="See where the total comes from.">Видно, откуда берётся итог.</h2>
+          <p data-ru="Смета показывает работы и материалы отдельно, с детализацией по комнатам и этажам. Список покупок помогает оценить материалы в упаковках." data-en="The estimate separates work and materials, with a breakdown by room and floor. A shopping list helps you plan materials by package.">Смета показывает работы и материалы отдельно, с детализацией по комнатам и этажам. Список покупок помогает оценить материалы в упаковках.</p>
+        </div>
+        <ul class="checklist">
+          <li><span class="check">✓</span><span data-ru="Количество по размерам помещений и выбранным правилам расчёта" data-en="Quantities based on room dimensions and your calculation settings">Количество по размерам помещений и выбранным правилам расчёта</span></li>
+          <li><span class="check">✓</span><span data-ru="Стоимость работ и материалов с вашими ценами" data-en="Work and material costs using your own prices">Стоимость работ и материалов с вашими ценами</span></li>
+          <li><span class="check">✓</span><span data-ru="Просмотр PDF перед экспортом" data-en="Preview the PDF before export">Просмотр PDF перед экспортом</span></li>
+          <li><span class="check">✓</span><span data-ru="Экспорт модели этажа в USDZ" data-en="Export a floor model in USDZ">Экспорт модели этажа в USDZ</span></li>
+        </ul>
+        <div class="price-box"><strong data-ru="Экспорт сметы в PDF" data-en="Exporting an estimate to PDF">Экспорт сметы в PDF</strong><p data-ru="В приложении предусмотрена отдельная покупка PDF-экспорта через App Store. Цена будет указана в приложении перед покупкой." data-en="PDF export is offered as a separate in-app purchase through the App Store. The price will be shown in the app before purchase.">В приложении предусмотрена отдельная покупка PDF-экспорта через App Store. Цена будет указана в приложении перед покупкой.</p></div>
       </div>
     </section>
+
+    <section class="final shell" id="release">
+      <div class="eyebrow" style="justify-content:center" data-ru="Скоро" data-en="Coming soon">Скоро</div>
+      <h2 data-ru="Пусть у ремонта будет хороший план." data-en="Give your renovation a good plan.">Пусть у ремонта будет хороший план.</h2>
+      <p data-ru="RoomCost готовится к публикации в App Store. Информация о доступности и совместимых устройствах появится здесь после релиза." data-en="RoomCost is preparing for release on the App Store. Availability and compatible device details will be posted here at launch.">RoomCost готовится к публикации в App Store. Информация о доступности и совместимых устройствах появится здесь после релиза.</p>
+      <a class="button primary" href="#top"><span data-ru="Наверх" data-en="Back to top">Наверх</span><span aria-hidden="true">↑</span></a>
+    </section>
   </main>
-  <footer><div class="wrap">RoomCost · приложение для планирования ремонта</div></footer>
+  <footer class="shell">
+    <div><span class="foot-brand">RoomCost</span><span>　·　<span data-ru="Планирование ремонта" data-en="Renovation planning">Планирование ремонта</span></span></div>
+    <div class="foot-right" data-ru="Для iPhone и iPad · Доступность в App Store будет объявлена позже" data-en="For iPhone and iPad · App Store availability to be announced">Для iPhone и iPad · Доступность в App Store будет объявлена позже</div>
+  </footer>
+  <script>
+    const languageButton=document.getElementById("lang");
+    const nav=document.getElementById("nav");
+    const menu=document.getElementById("menu");
+    function setLanguage(lang){
+      document.documentElement.lang=lang;
+      document.querySelectorAll("[data-"+lang+"]").forEach(el=>{el.innerHTML=el.getAttribute("data-"+lang)});
+      languageButton.innerHTML=lang==="ru"?"<b>RU</b> / EN":"RU / <b>EN</b>";
+      try{localStorage.setItem("roomcost-language",lang)}catch{}
+    }
+    languageButton.addEventListener("click",()=>setLanguage(document.documentElement.lang==="ru"?"en":"ru"));
+    menu.addEventListener("click",()=>nav.classList.toggle("open"));
+    nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>nav.classList.remove("open")));
+    try{if(localStorage.getItem("roomcost-language")==="en")setLanguage("en")}catch{}
+  </script>
 </body>
 </html>
