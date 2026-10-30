@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4ef">
+  <meta name="description" content="RoomCost — приложение для планировки помещений и расчёта стоимости ремонта.">
+  <title>RoomCost — ремонт начинается с плана</title>
+  <style>
+    :root { color-scheme: light; --ink:#202522; --muted:#68716b; --green:#3d674f; --line:#dfe3db; --paper:#f5f4ef; --white:#fff; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    a { color:inherit; }
+    .wrap { width:min(1120px, calc(100% - 48px)); margin:auto; }
+    header { height:82px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:-.03em; font-size:20px; }
+    .mark { width:36px; height:36px; border-radius:11px; display:grid; place-items:center; background:var(--green); color:white; }
+    .mark svg { width:22px; height:22px; }
+    .nav { color:var(--muted); text-decoration:none; font-size:14px; }
+    .hero { display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center; padding:84px 0 90px; }
+    .eyebrow { color:var(--green); font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    h1 { font-size:clamp(44px,6vw,72px); line-height:.99; letter-spacing:-.065em; max-width:620px; margin:20px 0 24px; }
+    .lead { color:var(--muted); font-size:18px; line-height:1.65; max-width:500px; margin:0; }
+    .note { display:inline-flex; gap:9px; align-items:center; margin-top:32px; border:1px solid var(--line); border-radius:99px; padding:11px 15px; color:#49524c; font-size:13px; }
+    .dot { width:8px; height:8px; background:#d09a4c; border-radius:50%; }
+    .visual { min-height:390px; border:1px solid #e3e5de; border-radius:26px; background:#eeeee8; display:grid; place-items:center; overflow:hidden; position:relative; }
+    .visual:before,.visual:after { content:""; position:absolute; width:230px; height:230px; border:1px solid #dfe2d9; border-radius:50%; }
+    .visual:after { width:320px; height:320px; }
+    .plan { z-index:1; width:min(76%,350px); background:#fff; border:1px solid #d8ded5; border-radius:18px; padding:22px; box-shadow:0 24px 55px #35463719; transform:rotate(-3deg); }
+    .plan-top { display:flex; justify-content:space-between; align-items:center; font-size:12px; color:var(--muted); margin-bottom:17px; }
+    .plan-top strong { color:var(--ink); font-size:14px; }
+    .floor { height:205px; border:5px solid #556c5b; position:relative; background:#f8f8f4; }
+    .room { position:absolute; border:3px solid #556c5b; background:#eef2ea; }
+    .r1 { left:0; top:0; width:56%; height:57%; border-left:0; border-top:0; }
+    .r2 { right:0; top:0; width:44%; height:57%; border-right:0; border-top:0; }
+    .r3 { left:0; bottom:0; width:42%; height:43%; border-left:0; border-bottom:0; }
+    .r4 { right:0; bottom:0; width:58%; height:43%; border-right:0; border-bottom:0; }
+    .door { position:absolute; width:35px; height:3px; background:#d7a45e; right:31%; top:56%; }
+    .measure { position:absolute; left:0; right:0; bottom:-18px; color:#818b82; text-align:center; font-size:10px; letter-spacing:.08em; }
+    .summary { display:flex; justify-content:space-between; padding-top:28px; font-size:11px; color:var(--muted); }
+    .summary b { display:block; margin-top:4px; color:var(--ink); font-size:17px; }
+    .section { border-top:1px solid var(--line); padding:58px 0 74px; }
+    .section h2 { font-size:clamp(28px,4vw,42px); letter-spacing:-.05em; margin:0 0 34px; }
+    .features { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:24px; min-height:180px; }
+    .num { color:var(--green); font-size:12px; font-weight:700; letter-spacing:.1em; }
+    .card h3 { font-size:18px; margin:23px 0 9px; letter-spacing:-.025em; }
+    .card p { font-size:14px; line-height:1.6; color:var(--muted); margin:0; }
+    footer { padding:24px 0 38px; color:var(--muted); font-size:12px; border-top:1px solid var(--line); }
+    @media (max-width:760px) { .wrap{width:min(100% - 36px,560px)} header{height:70px}.hero{grid-template-columns:1fr;gap:42px;padding:62px 0}.visual{min-height:340px}.features{grid-template-columns:1fr}.section{padding:45px 0 55px}.card{min-height:auto}.card h3{margin-top:15px} }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <a class="brand" href="#top" aria-label="RoomCost — главная">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h7v7H4zM13 4h7v5h-7zM13 11h7v9h-7zM4 13h7v7H4z"/></svg></span>
+      RoomCost
+    </a>
+    <a class="nav" href="#features">Возможности</a>
+  </header>
+  <main id="top" class="wrap">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Планируйте ремонт с ясностью</div>
+        <h1>Сначала план.<br>Затем смета.</h1>
+        <p class="lead">RoomCost помогает нарисовать план помещения, собрать работы и материалы и увидеть расчёт стоимости ремонта в одном проекте.</p>
+        <div class="note"><span class="dot"></span> Страница проекта · приложение в разработке</div>
+      </div>
+      <div class="visual" role="img" aria-label="Иллюстрация плана квартиры и расчёта">
+        <div class="plan">
+          <div class="plan-top"><strong>Моя квартира</strong><span>План этажа</span></div>
+          <div class="floor"><i class="room r1"></i><i class="room r2"></i><i class="room r3"></i><i class="room r4"></i><i class="door"></i><span class="measure">ПЛАН ПОМЕЩЕНИЙ</span></div>
+          <div class="summary"><span>Работы и материалы<b>Смета проекта</b></span><span>Формат<b>PDF</b></span></div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="features">
+      <div class="eyebrow">В одном проекте</div>
+      <h2>От помещения до расчёта</h2>
+      <div class="features">
+        <article class="card"><span class="num">01 / ПЛАН</span><h3>Планировка комнат</h3><p>Создавайте план этажа, задавайте размеры и отмечайте двери, окна и другие элементы.</p></article>
+        <article class="card"><span class="num">02 / РАБОТЫ</span><h3>Работы и материалы</h3><p>Назначайте работы помещениям, добавляйте материалы и указывайте собственные цены.</p></article>
+        <article class="card"><span class="num">03 / СМЕТА</span><h3>Общий расчёт</h3><p>Смотрите количества и стоимость по комнатам и проекту. Подготовьте смету для экспорта в PDF.</p></article>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap">RoomCost · приложение для планирования ремонта</div></footer>
+</body>
+</html>
