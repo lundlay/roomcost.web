@@ -1,3 +1,7 @@
+@font-face { font-family: "Inter"; src: url("fonts/inter.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter Tight"; src: url("fonts/inter-tight.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/jetbrains-mono.woff") format("woff"); font-weight: 500; font-style: normal; font-display: swap; }
+
 :root {
   color-scheme: light dark;
   --bg: #FFFFFF;
