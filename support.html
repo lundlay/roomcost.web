@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="description" content="RoomCost support: contact, scanning, iCloud sync, PDF purchases and refunds.">
+  <link rel="canonical" href="https://roomcost.app/support.html">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <title>Support · RoomCost</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="shell">
+    <a class="brand" href="index.html"><img src="app-icon.jpg" alt=""><span>RoomCost</span></a>
+    <a class="pill" href="https://apps.apple.com/app/roomcost">Get the app</a>
+  </div>
+</header>
+
+<main class="page">
+  <h1>Support</h1>
+  <p class="lead">Questions, problems with a scan or a purchase, ideas for the work catalog: write to us and we will answer by email.</p>
+
+  <div class="callout contact">
+    <div>
+      <span>Email</span>
+      <a class="contact-email address" data-user="oleg.lavronov" data-tag="roomcost" data-domain="gmail.com">oleg.lavronov+roomcost [at] gmail [dot] com</a>
+    </div>
+    <a class="contact-email button-accent" data-user="oleg.lavronov" data-tag="roomcost" data-domain="gmail.com">Write to support</a>
+  </div>
+
+  <p class="note">To help us answer faster, include your device model, the iOS version and the app version. For a scan or plan problem, a screenshot helps most.</p>
+
+  <h2>Common questions</h2>
+  <div class="topic"><h3>The scan button is missing</h3><p>Room scanning needs a LiDAR sensor, found on iPhone Pro and iPad Pro models. On other devices draw the plan by hand: tap a starting corner and type the wall lengths.</p></div>
+  <div class="topic"><h3>The scan came out wrong</h3><p>Scan in good light and move slowly along the walls. Every wall, door and window on the plan can be corrected after the scan.</p></div>
+  <div class="topic"><h3>Projects do not appear on my other device</h3><p>Sign in to the same Apple Account on both devices and turn on iCloud for RoomCost in iOS Settings. Syncing can take a few minutes.</p></div>
+  <div class="topic"><h3>I paid but the PDF did not open</h3><p>Some payments are confirmed later, for example with Ask to Buy or a bank check. The PDF unlocks when the App Store confirms the payment. If it does not, write to us with the date of the purchase.</p></div>
+  <div class="topic"><h3>How do I get a refund?</h3><p>Purchases go through Apple. Request a refund at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p></div>
+</main>
+
+<footer class="footer">
+  <div class="shell">
+    <span>© 2026 RoomCost</span>
+    <nav aria-label="Footer"><a href="support.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></nav>
+  </div>
+</footer>
+<script>
+document.querySelectorAll(".contact-email").forEach(a => {
+  const email = a.dataset.user + "+" + a.dataset.tag + "@" + a.dataset.domain;
+  a.href = "mailto:" + email;
+  if (a.textContent.includes("[at]")) a.textContent = email;
+});
+</script>
+</body>
+</html>
