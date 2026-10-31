@@ -27,7 +27,7 @@
 
     <h1>RoomCost Terms of Use</h1>
     <p class="updated">Effective date: October 30, 2026</p>
-    <p><strong>Publisher:</strong> Oleg Lavronov.<br><strong>Support contact:</strong> <a class="contact-email" data-user="oleg.lavronov" data-tag="roomcost" data-domain="gmail.com">oleg.lavronov+roomcost [at] gmail [dot] com</a></p>
+    <p><strong>Publisher:</strong> Oleg Lavronov.<br><strong>Support contact:</strong> <a class="contact-email" data-user="support" data-domain="roomcost.app">support [at] roomcost [dot] app</a></p>
 
     <h2>1. Agreement</h2>
     <p>These terms apply to the RoomCost app and roomcost.app website. By using either, you agree to these terms. If you do not agree, stop using them. Apple’s and system services’ separate terms also apply to those services.</p>
@@ -69,8 +69,9 @@
 </footer>
 <script>
 document.querySelectorAll(".contact-email").forEach(a => {
-  const email = a.dataset.user + "+" + a.dataset.tag + "@" + a.dataset.domain;
+  const email = a.dataset.user + "@" + a.dataset.domain;
   a.href = "mailto:" + email;
+  a.textContent = email;
   a.setAttribute("aria-label", "Email RoomCost support");
 });
 </script>

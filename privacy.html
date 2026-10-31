@@ -27,7 +27,7 @@
 
     <h1>RoomCost Privacy Policy</h1>
     <p class="updated">Effective date: October 30, 2026</p>
-    <p><strong>App publisher:</strong> Oleg Lavronov.<br><strong>Privacy contact:</strong> <a class="contact-email" data-user="oleg.lavronov" data-tag="roomcost" data-domain="gmail.com">oleg.lavronov+roomcost [at] gmail [dot] com</a></p>
+    <p><strong>App publisher:</strong> Oleg Lavronov.<br><strong>Privacy contact:</strong> <a class="contact-email" data-user="support" data-domain="roomcost.app">support [at] roomcost [dot] app</a></p>
     <div class="callout"><strong>In short.</strong> RoomCost does not require a RoomCost account and does not use its own server, advertising network, or third-party analytics. Project data is stored on your device and, when iCloud is available, synced to the private CloudKit database for your Apple Account. Some features you choose use Apple services, as described below.</div>
 
     <h2>1. Scope</h2>
@@ -76,8 +76,9 @@
 </footer>
 <script>
 document.querySelectorAll(".contact-email").forEach(a => {
-  const email = a.dataset.user + "+" + a.dataset.tag + "@" + a.dataset.domain;
+  const email = a.dataset.user + "@" + a.dataset.domain;
   a.href = "mailto:" + email;
+  a.textContent = email;
   a.setAttribute("aria-label", "Email RoomCost support");
 });
 </script>

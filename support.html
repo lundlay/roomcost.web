@@ -29,9 +29,9 @@
   <div class="callout contact">
     <div>
       <span>Email</span>
-      <a class="contact-email address" data-user="oleg.lavronov" data-tag="roomcost" data-domain="gmail.com">oleg.lavronov+roomcost [at] gmail [dot] com</a>
+      <a class="contact-email address" data-user="support" data-domain="roomcost.app">support [at] roomcost [dot] app</a>
     </div>
-    <a class="contact-email button-accent" data-user="oleg.lavronov" data-tag="roomcost" data-domain="gmail.com">Write to support</a>
+    <a class="contact-email button-accent" data-user="support" data-domain="roomcost.app">Write to support</a>
   </div>
 
   <p class="note">To help us answer faster, include your device model, the iOS version and the app version. For a scan or plan problem, a screenshot helps most.</p>
@@ -52,7 +52,7 @@
 </footer>
 <script>
 document.querySelectorAll(".contact-email").forEach(a => {
-  const email = a.dataset.user + "+" + a.dataset.tag + "@" + a.dataset.domain;
+  const email = a.dataset.user + "@" + a.dataset.domain;
   a.href = "mailto:" + email;
   if (a.textContent.includes("[at]")) a.textContent = email;
 });
