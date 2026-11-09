@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#FFFFFF">
-  <meta name="description" content="RoomCost privacy policy: projects and iCloud, scanning, maps, voice search and purchases.">
+  <meta name="description" content="RoomCost privacy policy: projects and iCloud, scanning, maps, product links and purchases.">
   <link rel="canonical" href="https://roomcost.app/privacy.html">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -24,32 +24,34 @@
   <span class="eyebrow">Legal</span>
 
     <h1>RoomCost Privacy Policy</h1>
-    <p class="updated">Effective date: October 31, 2026</p>
+    <p class="updated">Effective date: November 9, 2026</p>
     <p><strong>App publisher:</strong> Oleg Lavronov.<br><strong>Privacy contact:</strong> <a class="contact-email" data-user="support" data-domain="roomcost.app">support [at] roomcost [dot] app</a></p>
-    <div class="callout"><strong>In short.</strong> RoomCost does not require a RoomCost account and does not use its own server, advertising network, or third-party analytics. Project data is stored on your device and, when iCloud is available, synced to the private CloudKit database for your Apple Account. Some features you choose use Apple services, as described below.</div>
+    <div class="callout"><strong>In short.</strong> RoomCost does not require a RoomCost account and does not use its own server, advertising network, or third-party analytics. Project data is stored on your device and, when iCloud is available, synced to the private CloudKit database for your Apple Account. Some features you choose use Apple services or open a store page you link to, as described below.</div>
 
     <h2>1. Scope</h2>
     <p>This policy covers the RoomCost app for iPhone and iPad and the roomcost.app website. It describes the app and website as currently implemented on the effective date above. Apple’s handling of data in Apple services is governed by Apple’s own documents.</p>
 
     <h2>2. Information you add to the app</h2>
-    <p>RoomCost can store project names, addresses, and dates; floor plans, room and wall dimensions, openings, and furniture; assigned work, materials, their specifications and prices; photos of price tags or samples that you attach; estimates and export records. This information is used to keep your project and calculate quantities and costs.</p>
+    <p>RoomCost can store project names, addresses, and dates; your own project fields, such as a phone number, email address, or website; floor plans, room and wall dimensions, openings, and furniture; assigned work, materials, their specifications and prices; photos of materials, price tags, or samples that you attach; estimates and export records. This information is used to keep your project and calculate quantities and costs.</p>
     <p>RoomCost does not send these records to a developer-operated server. They are saved locally in the app. If an iCloud account is available on your device, the app uses the RoomCost CloudKit container’s private database to sync across your devices. The private database belongs to your Apple Account; CloudKit data counts toward your iCloud storage quota.</p>
 
     <h2>3. Camera, photos, and scanning</h2>
     <ul>
       <li><strong>Room scanning.</strong> On supported LiDAR devices, the app uses Apple RoomPlan to capture room geometry and import it into your plan. Camera access is required. RoomCost does not upload scans to a developer-operated server.</li>
-      <li><strong>Price tags and samples.</strong> You can take a photo or select a specific image using the system photo picker. Apple Vision recognizes text on device. A photo may be saved with a material entry if you choose to keep it in the project or catalog.</li>
-      <li>You can change camera permission in iOS Settings. Selecting an image does not give RoomCost general access to your photo library.</li>
+      <li><strong>Materials, price tags, and samples.</strong> You can take a photo or select a specific image using the system photo picker. Apple Vision recognizes text and processes the image on device. A photo may be saved with a material entry if you choose to keep it in the project or catalog.</li>
+      <li><strong>Saving photos.</strong> If you choose Save Image in the iOS share sheet, iOS asks for permission to add photos to your library. This permission only adds the image you chose; it does not let RoomCost read your library.</li>
+      <li>You can change camera and photo permissions in iOS Settings. Selecting an image does not give RoomCost general access to your photo library.</li>
     </ul>
 
     <h2>4. Maps, addresses, and location</h2>
     <p>When you open the address picker, RoomCost uses Apple MapKit to display a map, search for an address, and resolve the selected location. If you grant location permission or use the current-location control, Apple may process the relevant coordinates to provide the map. An address or search term you enter is also sent to Apple Maps for search. RoomCost does not track location in the background and does not access it unless you use this feature.</p>
 
-    <h2>5. Voice search</h2>
-    <p>Voice search is an optional way to find projects. When you start it, the app requests microphone and speech recognition permission. If the system supports on-device recognition, RoomCost requires that mode. If it is unavailable, Apple’s system speech recognition service may send audio to Apple servers for processing. The app uses the recognized text as a search query and stops recording when recognition ends or you stop it. Apple’s processing is governed by Apple’s privacy policy and your iOS settings.</p>
+    <h2>5. Product links and the work and material list</h2>
+    <p><strong>Product links.</strong> If you paste a link to a product into a material form, your device requests that page over HTTPS directly from the store’s website. The page may be opened in a hidden web view that does not keep cookies or website data. The website receives what any site receives from a visit, such as your IP address and the requested page, and its own scripts may run; its privacy policy applies. RoomCost uses the name, price, details, and photos from the page to fill in the form. The link is not kept in the material and is not sent to us.</p>
+    <p><strong>Work and material list.</strong> The app downloads a list of works and materials for your region and language from the public CloudKit database of the RoomCost container. This request goes to Apple and does not need an iCloud account. Nothing from your projects or catalogs is uploaded. If you are signed in to iCloud, the app also saves a subscription in that database so that a silent notification can report changes to the list. The subscription holds your region and language and is linked to the anonymous CloudKit identifier of this app, not to your name or email address.</p>
 
     <h2>6. Purchases and exports</h2>
-    <p>PDF export is purchased through Apple In‑App Purchase (StoreKit). RoomCost receives the transaction result and links it to an export record so you can share the corresponding PDF version. The developer does not receive your payment card number or process payment credentials. Apple handles payments and refunds under its terms.</p>
+    <p>Access to PDF export is bought through Apple In‑App Purchase (StoreKit) for a week or a month and does not renew. RoomCost reads your App Store transactions for these products on the device to work out whether access is open, and keeps a record of each exported version so you can share it again. The app also stores whether your free first PDF was used, in iCloud key-value storage and on the device, and the latest time seen on the device, to check the access period. The developer does not receive your payment card number or process payment credentials. Apple handles payments and refunds under its terms.</p>
     <p>PDFs, project files, catalogs, and USDZ models are created on your device. If you share a file, it is passed to the app, person, or storage destination you select through the iOS share sheet. The recipient’s rules govern its further handling.</p>
 
     <h2>7. Website</h2>
@@ -57,13 +59,14 @@
 
     <h2>8. Retention, deletion, and choices</h2>
     <p>Project data remains until you delete the project or individual records in the app. Deleting a project from RoomCost deletes its rooms and related data; if iCloud sync is enabled, the change syncs to your devices. Work and material catalogs are managed separately. Deleting the app alone may not remove data already synced to iCloud. Manage it through the app and your Apple Account’s iCloud settings. Apple may retain backups or technical records under its service policies.</p>
-    <p>You can deny camera, microphone, speech recognition, or location permission in iOS Settings; the related feature will then be unavailable. For questions or requests about personal data or this policy, contact the publisher using the details at the beginning of this document.</p>
+    <p>You can deny camera, photo library, or location permission in iOS Settings; the related feature will then be unavailable. For questions or requests about personal data or this policy, contact the publisher using the details at the beginning of this document.</p>
 
     <h2>9. Children and changes</h2>
     <p>RoomCost is a renovation planning tool and is not specifically designed for children. If our data practices materially change, we will update this page and its revision date. Before submitting a new app version, the policy should be checked against the actual features and the App Privacy details in App Store Connect.</p>
 
     <h2>10. Apple services</h2>
-    <p>Learn more about how Apple handles data in its services: <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>, <a href="https://developer.apple.com/documentation/cloudkit">CloudKit</a>, <a href="https://www.apple.com/legal/privacy/data/en/apple-maps/">Apple Maps</a>, and <a href="https://developer.apple.com/documentation/speech">Speech</a>.</p>
+    <p>Learn more about how Apple handles data in its services: <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>, <a href="https://developer.apple.com/documentation/cloudkit">CloudKit</a>, and <a href="https://www.apple.com/legal/privacy/data/en/apple-maps/">Apple Maps</a>.</p>
+    <p><strong>Beta testing.</strong> If you test RoomCost through TestFlight, Apple shares test data with the developer, such as your invitation email address, device and iOS details, install and session counts, crash logs, and the feedback and screenshots you send. The TestFlight app describes this before you start testing.</p>
 </main>
 
 <footer class="footer">
