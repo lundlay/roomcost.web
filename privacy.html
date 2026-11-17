@@ -38,7 +38,8 @@
     <h2>3. Camera, photos, and scanning</h2>
     <ul>
       <li><strong>Room scanning.</strong> On supported LiDAR devices, the app uses Apple RoomPlan to capture room geometry and import it into your plan. Camera access is required. RoomCost does not upload scans to a developer-operated server.</li>
-      <li><strong>Materials, price tags, and samples.</strong> You can take a photo or select a specific image using the system photo picker. Apple Vision recognizes text and processes the image on device. A photo may be saved with a material entry if you choose to keep it in the project or catalog.</li>
+      <li><strong>Materials, price tags, and samples.</strong> You can take a photo or select a specific image using the system photo picker. Apple Vision recognizes text and processes the image on device. A photo of a tile or a sample can also be used on device to pick the color of a surface. A photo may be saved with a material entry if you choose to keep it in the project or catalog.</li>
+      <li><strong>Logo.</strong> You can take a photo of your logo or select an image with the system photo picker. The app straightens and scales it down on device.</li>
       <li><strong>Saving photos.</strong> If you choose Save Image in the iOS share sheet, iOS asks for permission to add photos to your library. This permission only adds the image you chose; it does not let RoomCost read your library.</li>
       <li>You can change camera and photo permissions in iOS Settings. Selecting an image does not give RoomCost general access to your photo library.</li>
     </ul>
@@ -52,7 +53,7 @@
 
     <h2>6. Purchases and exports</h2>
     <p>Access to export is bought through Apple In‑App Purchase (StoreKit) for a week, a month or a year and does not renew. RoomCost reads your App Store transactions for these products on the device to work out whether access is open, and keeps a record of each exported version so you can share it again. The app also stores whether your free first PDF was used, in iCloud key-value storage and on the device, and the latest time seen on the device, to check the access period. The developer does not receive your payment card number or process payment credentials. Apple handles payments and refunds under its terms.</p>
-    <p>If you add a logo, the image is kept in the app settings and synced through your private CloudKit database like your projects. It is placed only on PDFs you export.</p>
+    <p>If you add a logo, the image is kept in the app settings and synced through your private CloudKit database like your projects. It is placed only on PDFs you export while a year of access is open. Your own project fields, such as a phone number, email address, or website, are printed in the PDF as you enter them and can be tapped by the recipient.</p>
     <p>PDFs, Excel and CSV tables, project files, catalogs, and USDZ models are created on your device. If you share a file, it is passed to the app, person, or storage destination you select through the iOS share sheet. The recipient’s rules govern its further handling.</p>
 
     <h2>7. Website</h2>
