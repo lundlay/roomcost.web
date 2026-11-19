@@ -9,7 +9,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="RoomCost">
   <meta property="og:title" content="RoomCost: plan, price and check a renovation">
-  <meta property="og:description" content="Scan or draw the plan, assign work from the catalog and see what the renovation should cost.">
+  <meta property="og:description" content="Scan or draw your floor plan and use your prices to build a room-by-room renovation estimate.">
   <meta property="og:url" content="https://roomcost.app/">
   <meta property="og:image" content="https://roomcost.app/app-icon.jpg">
   <meta name="twitter:card" content="summary">
@@ -21,7 +21,7 @@
   <link rel="preload" href="fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="site.css">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"RoomCost","operatingSystem":"iOS, iPadOS","applicationCategory":"UtilitiesApplication","url":"https://roomcost.app/","image":"https://roomcost.app/app-icon.jpg","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"RoomCost","operatingSystem":"iOS 27 or later, iPadOS 27 or later","applicationCategory":"UtilitiesApplication","url":"https://roomcost.app/","image":"https://roomcost.app/app-icon.jpg","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
 </head>
 <body>
@@ -40,7 +40,7 @@
       <a href="#faq">FAQ</a>
       <a href="support.html">Support</a>
     </nav>
-    <a class="pill" href="https://apps.apple.com/app/id6828838224">Get the app</a>
+    <a class="pill" href="https://testflight.apple.com/join/Q9auX86J">Join the beta</a>
   </div>
 </header>
 
@@ -51,13 +51,13 @@
         <img class="hero-icon" src="app-icon.jpg" alt="RoomCost app icon" width="76" height="76">
         <span class="eyebrow">For iPhone and iPad</span>
         <h1 class="hero-title">Plan the room.<br>Price the work.<br><em>Check the quote.</em></h1>
-        <p class="lead">Scan a room with LiDAR or draw the plan by hand. RoomCost measures areas and quantities, applies your prices and shows what the renovation should cost.</p>
+        <p class="lead">Scan or draw your floor plan. RoomCost calculates work quantities and material needs from your measurements. Add your prices to build a room-by-room estimate you can compare with a contractor’s quote.</p>
         <div class="hero-cta">
-          <a class="store" href="https://apps.apple.com/app/id6828838224">
+          <a class="store" href="https://testflight.apple.com/join/Q9auX86J">
             <svg aria-hidden="true"><use href="#i-download"/></svg>
-            <span><small>Download on the</small><strong>App Store</strong></span>
+            <span><strong>Join the TestFlight beta</strong></span>
           </a>
-          <span class="hero-meta">Free to plan and estimate.<br>Nothing renews automatically.<br><a href="https://testflight.apple.com/join/Q9auX86J">Try the beta on TestFlight</a></span>
+          <span class="hero-meta">Requires iOS 27 or iPadOS 27 or later.<br>Room scanning requires LiDAR.</span>
         </div>
       </div>
       <div class="hero-devices">
@@ -160,7 +160,7 @@
       <div class="showcase">
         <figure>
           <div class="device"><img src="images/screen-3d.jpg" alt="3D model of the bedroom with floor, walls, bed and wardrobe" width="640" height="1391" loading="lazy"></div>
-          <figcaption><strong>Walk around in 3D</strong><span>Check proportions, furniture and openings from any angle. Export the floor as USDZ to show it on any iPhone, iPad or Mac.</span></figcaption>
+          <figcaption><strong>Inspect the floor in 3D</strong><span>Rotate and zoom the model to see how furniture fits and where doors and windows sit. Export the floor as USDZ to show it on any iPhone, iPad or Mac.</span></figcaption>
         </figure>
         <figure>
           <div class="device"><img src="images/screen-pdf.jpg" alt="PDF preview with the floor plan to scale and the estimate table" width="640" height="1391" loading="lazy"></div>
@@ -182,11 +182,11 @@
       </div>
       <div class="tile">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></svg>
-        <h3>Scan a price tag</h3><p>Point the camera at a tag in the store, or open the product page by its link, and the name, price and pack size go into your material catalog.</p>
+        <h3>Scan a price tag</h3><p>Scan a price tag or open a product page. Review the details RoomCost finds, then save the material to your catalog.</p>
       </div>
       <div class="tile">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9z"/></svg>
-        <h3>iCloud sync, works offline</h3><p>Projects follow you between iPhone and iPad. Plans and estimates work without internet.</p>
+        <h3>iCloud sync, works offline</h3><p>Work on plans and estimates offline. Enable iCloud for RoomCost to sync projects between devices using the same Apple Account.</p>
       </div>
       <div class="tile">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
@@ -194,7 +194,7 @@
       </div>
       <div class="tile">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>
-        <h3>Share as a file</h3><p>Save a project or your price catalog as a file to back it up or move it to another device.</p>
+        <h3>Share as a file</h3><p>Export your catalog from Settings. When you export an estimate, you can also share a file containing that version of the project.</p>
       </div>
       <div class="tile">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
@@ -207,13 +207,13 @@
     <div class="price-card">
       <div>
         <span class="eyebrow">Pricing</span>
-        <h2 id="pricing-title" class="section-title">Pay only when you export, and nothing renews</h2>
-        <p class="section-lead">Scanning, drawing, measuring and estimating are free. You pay only for access to export, for a week, a month or a year.</p>
+        <h2 id="pricing-title" class="section-title">Plan for free. Choose when to export.</h2>
+        <p class="section-lead">Your first PDF export is free. Additional PDFs and all Excel and CSV exports require an export pass.</p>
       </div>
       <div class="price-list">
-        <div><strong>Everything in the app is free</strong><span>Scanning, plans, 3D, catalogs and the estimate on screen, with no limit on projects. No trial period and no account to create.</span></div>
-        <div><strong>Your first PDF is free</strong><span>Export one PDF without paying and see the result for yourself.</span></div>
-        <div><strong>A week, a month or a year of export</strong><span>€2.99 for a week, €6.99 for a month or €39.99 for a year in euro countries. The app shows the price for your country before you pay. While access is open, every project exports to PDF, Excel and CSV without a new payment.</span></div>
+        <div><strong>Free planning and estimating</strong><span>Scanning, plans, 3D, catalogs and the estimate on screen, with no limit on projects. No trial period and no account to create.</span></div>
+        <div><strong>Your first PDF is free</strong><span>Preview the full report, then share your first PDF for free.</span></div>
+        <div><strong>A week, a month or a year of export</strong><span>€2.99 for a week, €6.99 for a month or €39.99 for a year in euro countries. The app shows the price for your country before you pay. One pass covers all projects and does not renew automatically. Purchases in the TestFlight beta are free test transactions.</span></div>
         <div><strong>Your logo with a year</strong><span>With a year of access, your logo goes at the top of every PDF page, and the RoomCost line and QR code at the bottom are left out.</span></div>
         <div><strong>What you exported stays</strong><span>When access ends, your projects stay and exported PDFs can still be sent. Only new exports stop.</span></div>
       </div>
@@ -224,11 +224,11 @@
     <div class="faq">
       <h2 id="faq-title" class="section-title">Questions</h2>
       <div>
-        <details><summary>Do I need an iPhone with LiDAR?<svg class="chev" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>No. Scanning uses Apple RoomPlan and needs a LiDAR sensor: iPhone 12 Pro or later, iPad Pro (2020) or later. On any other iPhone or iPad you draw the plan by hand, and every other feature works the same.</p></details>
-        <details><summary>What is free and what costs money?<svg class="chev" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Plans, catalogs, measurements and the estimate on screen are free, and so is your first PDF. After that, exporting a PDF, Excel or CSV file needs access for a week, a month or a year, bought in the app. It does not renew and nothing is charged again.</p></details>
+        <details><summary>Do I need an iPhone with LiDAR?<svg class="chev" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>You can draw plans by hand on any iPhone or iPad running iOS 27 or iPadOS 27 or later. Scanning a room with Apple RoomPlan requires a LiDAR-equipped device.</p></details>
+        <details><summary>What is free and what costs money?<svg class="chev" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Planning and estimating are free. Your first PDF export is free too. A week, month or year of export access lets you create additional PDFs and export Excel and CSV files across all your projects. Access does not renew automatically.</p></details>
         <details><summary>What happens when my access ends?<svg class="chev" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Your projects stay, and exported PDFs stay in the export history and can be sent again for free. You can also return a project to its exported version. Only new exports stop until you buy access again. A week, a month or a year bought while access is open starts when the current one ends, so no paid day is lost.</p></details>
         <details><summary>How accurate are the numbers?<svg class="chev" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Quantities follow your plan, and prices follow your catalog. Check key walls with a tape measure before ordering materials. The estimate is a guide, not a binding quote.</p></details>
-        <details><summary>Where is my data stored?<svg class="chev" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>On your device and in your own iCloud account. We do not run servers that receive your projects. See the <a href="privacy.html">Privacy Policy</a>.</p></details>
+        <details><summary>Where is my data stored?<svg class="chev" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Projects are stored on your device. When iCloud is available and enabled for RoomCost, your projects sync across devices using the same Apple Account. We do not run servers that receive your projects. See the <a href="privacy.html">Privacy Policy</a>.</p></details>
         <details><summary>Can I try the beta?<svg class="chev" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Yes. Install Apple's TestFlight app, then open the <a href="https://testflight.apple.com/join/Q9auX86J">RoomCost beta invitation</a>. Beta builds get new features first and may have bugs. Send feedback from TestFlight or to support.</p></details>
       </div>
     </div>
@@ -238,9 +238,9 @@
     <img src="app-icon.jpg" alt="" width="112" height="112" loading="lazy">
     <h2 id="final-title" class="section-title">Start with one room</h2>
     <p class="section-lead">Scan it or draw it, add the work, and see the number.</p>
-    <a class="store" href="https://apps.apple.com/app/id6828838224">
+    <a class="store" href="https://testflight.apple.com/join/Q9auX86J">
       <svg aria-hidden="true"><use href="#i-download"/></svg>
-      <span><small>Download on the</small><strong>App Store</strong></span>
+      <span><strong>Join the TestFlight beta</strong></span>
     </a>
   </section>
 </main>
