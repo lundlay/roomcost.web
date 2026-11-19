@@ -3,23 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#FFFFFF">
+  <title>Support · RoomCost</title>
   <meta name="description" content="RoomCost support: contact, scanning, iCloud sync, PDF export access and refunds.">
+  <meta property="og:title" content="Support · RoomCost">
+  <meta property="og:description" content="RoomCost support: contact, scanning, iCloud sync, PDF export access and refunds.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://roomcost.app/support.html">
+  <meta property="og:image" content="https://roomcost.app/app-icon.jpg">
+  <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://roomcost.app/support.html">
+  <link rel="alternate" hreflang="en" href="https://roomcost.app/support.html">
+  <link rel="alternate" hreflang="uk" href="https://roomcost.app/uk/support.html">
+  <link rel="alternate" hreflang="x-default" href="https://roomcost.app/support.html">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <title>Support · RoomCost</title>
   <link rel="preload" href="fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="site.css?v=bedroom">
+
 </head>
 <body>
-<header class="topbar">
-  <div class="shell">
-    <a class="brand" href="index.html"><img src="app-icon.jpg" alt=""><span>RoomCost</span></a>
-    <a class="pill" href="https://testflight.apple.com/join/Q9auX86J">Join the beta</a>
-  </div>
-</header>
+<header class="topbar"><div class="shell">
+  <a class="brand" href="./"><img src="app-icon.jpg" width="32" height="32" alt=""><span>RoomCost</span></a>
 
+  <div class="actions"><a class="lang" href="uk/support.html" hreflang="uk" lang="uk">Українська</a><a class="pill" href="https://testflight.apple.com/join/Q9auX86J">Join the beta</a></div>
+</div></header>
 <main class="page">
   <h1>Support</h1>
   <p class="lead">Questions, problems with a scan or a purchase, ideas for the work catalog: write to us and we will answer by email.</p>
@@ -44,13 +52,9 @@
   <div class="topic"><h3>How do I join the beta?</h3><p>Install Apple's TestFlight app, then open the <a href="https://testflight.apple.com/join/Q9auX86J">RoomCost beta invitation</a>. Beta builds may have bugs. Send feedback from TestFlight or by email.</p></div>
   <div class="topic"><h3>How do I get a refund?</h3><p>Purchases go through Apple. Request a refund at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p></div>
 </main>
-
-<footer class="footer">
-  <div class="shell">
-    <span>© 2026 RoomCost</span>
-    <nav aria-label="Footer"><a href="support.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></nav>
-  </div>
-</footer>
+<footer class="footer"><div class="shell">
+  <span>© 2026 RoomCost</span><nav aria-label="Footer"><a href="support.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></nav>
+</div></footer>
 <script>
 document.querySelectorAll(".contact-email").forEach(a => {
   const email = a.dataset.user + "@" + a.dataset.domain;

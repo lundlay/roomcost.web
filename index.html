@@ -3,253 +3,88 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0E0E10" media="(prefers-color-scheme: dark)">
-  <meta name="description" content="RoomCost for iPhone and iPad: scan a room with LiDAR or draw the plan by hand, apply your prices and get a renovation estimate you can check line by line.">
+  <title>RoomCost · Room-by-room renovation estimates</title>
+  <meta name="description" content="Draw or scan your floor plan, add your prices and estimate the cost of renovation. Open a sample plan and itemized PDF estimate.">
+  <meta property="og:title" content="RoomCost · Room-by-room renovation estimates">
+  <meta property="og:description" content="Draw or scan your floor plan, add your prices and estimate the cost of renovation. Open a sample plan and itemized PDF estimate.">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="RoomCost">
-  <meta property="og:title" content="RoomCost: plan, price and check a renovation">
-  <meta property="og:description" content="Scan or draw your floor plan and use your prices to build a room-by-room renovation estimate.">
+  <meta property="og:locale" content="en_US">
   <meta property="og:url" content="https://roomcost.app/">
   <meta property="og:image" content="https://roomcost.app/app-icon.jpg">
   <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://roomcost.app/">
+  <link rel="alternate" hreflang="en" href="https://roomcost.app/">
+  <link rel="alternate" hreflang="uk" href="https://roomcost.app/uk/">
+  <link rel="alternate" hreflang="x-default" href="https://roomcost.app/">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <title>RoomCost: renovation estimate for iPhone and iPad</title>
   <link rel="preload" href="fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="site.css">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"RoomCost","operatingSystem":"iOS 27 or later, iPadOS 27 or later","applicationCategory":"UtilitiesApplication","url":"https://roomcost.app/","image":"https://roomcost.app/app-icon.jpg","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
-  </script>
+  <link rel="stylesheet" href="site.css?v=bedroom">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "RoomCost", "operatingSystem": "iOS 27+, iPadOS 27+", "applicationCategory": "UtilitiesApplication", "url": "https://roomcost.app/", "inLanguage": "en", "image": "https://roomcost.app/app-icon.jpg", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.5l2.7 2.7L16.5 9.5"/></symbol>
-  <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></symbol>
-  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
-</svg>
-
-<header class="topbar">
-  <div class="shell">
-    <a class="brand" href="index.html"><img src="app-icon.jpg" alt="" width="32" height="32"><span>RoomCost</span></a>
-    <nav class="nav" aria-label="Main">
-      <a href="#how">How it works</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
-      <a href="support.html">Support</a>
-    </nav>
-    <a class="pill" href="https://testflight.apple.com/join/Q9auX86J">Join the beta</a>
-  </div>
-</header>
-
+<header class="topbar"><div class="shell">
+  <a class="brand" href="./"><img src="app-icon.jpg" width="32" height="32" alt=""><span>RoomCost</span></a>
+  <nav class="nav" aria-label="Main navigation"><a href="#how">Example</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></nav>
+  <div class="actions"><a class="lang" href="uk/" hreflang="uk" lang="uk">Українська</a><a class="pill" href="https://testflight.apple.com/join/Q9auX86J">Join the beta</a></div>
+</div></header>
 <main>
-  <section class="hero">
-    <div class="shell">
-      <div class="hero-copy">
-        <img class="hero-icon" src="app-icon.jpg" alt="RoomCost app icon" width="76" height="76">
-        <span class="eyebrow">For iPhone and iPad</span>
-        <h1 class="hero-title">Plan the room.<br>Price the work.<br><em>Check the quote.</em></h1>
-        <p class="lead">Scan or draw your floor plan. RoomCost calculates work quantities and material needs from your measurements. Add your prices to build a room-by-room estimate you can compare with a contractor’s quote.</p>
-        <div class="hero-cta">
-          <a class="store" href="https://testflight.apple.com/join/Q9auX86J">
-            <svg aria-hidden="true"><use href="#i-download"/></svg>
-            <span><strong>Join the TestFlight beta</strong></span>
-          </a>
-          <span class="hero-meta">Requires iOS 27 or iPadOS 27 or later.<br>Room scanning requires LiDAR.</span>
-        </div>
-      </div>
-      <div class="hero-devices">
-        <div class="device small"><img src="images/screen-estimate.jpg" alt="Estimate screen with laminate, ceiling and wall painting lines and the room total" width="640" height="1391"></div>
-        <div class="device"><img src="images/screen-plan.jpg" alt="Floor plan of a bedroom with wall lengths, a bed and a wardrobe, and the room list below" width="640" height="1391" fetchpriority="high"></div>
-      </div>
+  <section class="intro"><div class="shell intro-grid">
+    <div class="intro-copy">
+      <p class="eyebrow">Renovation estimates for iPhone and iPad</p>
+      <h1>From floor plan<br>to <em>room estimate.</em></h1>
+      <p class="lead">Draw or scan a room. Add your rates to see what each job will cost, then compare the estimate with your contractor’s quote.</p>
+      <div class="intro-links"><a class="primary" href="https://testflight.apple.com/join/Q9auX86J">Join the TestFlight beta</a><a class="doc-link" href="sample-estimate.pdf">View sample estimate (PDF)</a></div>
+      <p class="fine">iOS or iPadOS 27 or later. Draw by hand on any supported device. TestFlight purchases are free during the beta.</p>
     </div>
-  </section>
+    <figure class="example" aria-label="Sample bedroom plan and estimate">
+      <div class="drawing"><span>Maple Street Apartment</span><img src="images/bedroom-plan-en.png" width="1020" height="798" fetchpriority="high" alt="Dimensioned plan of a 4 by 3 metre bedroom with a bed, wardrobe, door and window"></div>
+      <figcaption><div class="receipt-head">Bedroom estimate<small>4 jobs</small></div>
+      <div class="receipt-line"><span>Laminate laying<small>12 m² × $22 per m²</small></span><b>$264.00</b></div>
+      <div class="receipt-total"><span>Room total</span><strong>$982.56</strong></div></figcaption>
+    </figure>
+  </div></section>
 
-  <section class="strip" aria-label="Who it is for">
-    <div class="shell">
-      <div><strong>Renovating yourself</strong><span>Know how much paint, tile and flooring each room needs before you buy.</span></div>
-      <div><strong>Checking a contractor</strong><span>Compare their quote line by line with quantities measured on your own plan.</span></div>
-      <div><strong>Quoting a client</strong><span>For tradespeople: a clear estimate and a PDF with the plan to scale, ready to send.</span></div>
-    </div>
-  </section>
+  <section class="shell walkthrough" id="how"><div>
+    <p class="eyebrow">Inside the sample estimate</p>
+    <h2>One bedroom,<br>four jobs.</h2>
+    <p>The 4 × 3 m bedroom needs 12 m² of laminate. The ceiling has the same area. RoomCost deducts the door and window from the walls and the doorway from the skirting length.</p>
+    <a class="doc-link" href="sample-estimate.pdf">Open the plan and full estimate (PDF)</a>
+  </div><div class="work-table"><table><caption>Labor estimate · USD</caption><thead><tr><th>Work</th><th>Quantity</th><th>Amount</th></tr></thead><tbody>
+    <tr><th>Wall painting</th><td>34.44 m²</td><td>$482.16</td></tr>
+    <tr><th>Laminate laying</th><td>12 m²</td><td>$264.00</td></tr>
+    <tr><th>Ceiling painting</th><td>12 m²</td><td>$144.00</td></tr>
+    <tr><th>Skirting installation</th><td>13.20 m</td><td>$92.40</td></tr>
+  </tbody><tfoot><tr><th colspan="2">Room total</th><td>$982.56</td></tr></tfoot></table></div></section>
 
-  <section id="how" class="shell steps">
-    <div class="section-head">
-      <span class="eyebrow">How it works</span>
-      <h2 class="section-title">From a bare room to a priced estimate in three steps</h2>
-    </div>
+  <section class="packing"><div class="shell packing-grid"><div>
+    <p class="eyebrow">Buying materials</p><h2>Buy whole packs<br>for the whole project.</h2>
+    <p>Using the same laminate in several rooms? RoomCost adds up the quantities before rounding to whole packs. Share the shopping list with the store.</p>
+  </div><div class="pack-example"><strong>Two rooms with the same laminate</strong><div>12 m² + 8 m²<span>20 m² in total</span></div><div>2.5 m² per pack<b>8 packs</b></div></div></div></section>
+  <section class="shell tools"><h2>Also in RoomCost</h2><ul>
+    <li>Rotate the floor model in 3D and share it as USDZ.</li>
+    <li>Scan price tags or import materials from store links.</li>
+    <li>Organize projects in folders and sync them with iCloud.</li>
+    <li>Export your catalog from Settings or share an exported project version.</li>
+  </ul></section>
 
-    <article class="step">
-      <div class="step-copy">
-        <span class="eyebrow">01 · Plan</span>
-        <h3 class="section-title">Scan the room or draw it</h3>
-        <p class="section-lead">Either way you get an editable plan with real dimensions.</p>
-        <ul class="checks">
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>LiDAR scanning.</strong> Walls, windows, doors and furniture appear on the plan by themselves. Several rooms scanned in a row line up on one plan.</span></li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Drawing by hand.</strong> Place corners and type wall lengths. Snapping to right angles and existing points keeps the plan straight.</span></li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Edit anything.</strong> Move walls, shift doors and windows, add furniture, merge rooms, add floors with their own ceiling height.</span></li>
-        </ul>
-      </div>
-      <div class="step-media"><div class="device"><img src="images/screen-plan-full.jpg" alt="Plan editor with a scanned bedroom, wall lengths and the drawing tools" width="640" height="1391" loading="lazy"></div></div>
-    </article>
-
-    <article class="step reverse">
-      <div class="step-copy">
-        <span class="eyebrow">02 · Work</span>
-        <h3 class="section-title">Assign work to the room or one surface</h3>
-        <p class="section-lead">Quantities come from the plan, so you never type an area by hand.</p>
-        <ul class="checks">
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Walls, floor or ceiling.</strong> Add a job to the whole room or to a single wall.</span></li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Height bands.</strong> Tile up to 1.5 m and paint above it. Each job counts only its own zone.</span></li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Openings subtracted.</strong> Windows and doors come out of the wall area. Reveals and skirting are counted on their own, and a door between rooms counts once.</span></li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Your corrections.</strong> Override any quantity or add a percentage for cutting waste.</span></li>
-        </ul>
-      </div>
-      <div class="step-media"><div class="device"><img src="images/screen-room.jpg" alt="Bedroom card with floor area, perimeter, wall area and assigned works" width="640" height="1391" loading="lazy"></div></div>
-    </article>
-
-    <article class="step">
-      <div class="step-copy">
-        <span class="eyebrow">03 · Estimate</span>
-        <h3 class="section-title">See every line: quantity × price</h3>
-        <p class="section-lead">Set your prices once in the catalog. They fill every new project, and you can change them in any project.</p>
-        <ul class="checks">
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Totals by room, floor and home.</strong> The estimate updates with every change to the plan or prices.</span></li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Lock the prices.</strong> Edits to your catalog will not change an estimate you already agreed on.</span></li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Check a quote.</strong> Hold the contractor's quote up against your own quantities and ask about any difference.</span></li>
-        </ul>
-      </div>
-      <div class="step-media"><div class="device"><img src="images/screen-estimate.jpg" alt="Estimate for Maple Street Apartment with four lines and the total" width="640" height="1391" loading="lazy"></div></div>
-    </article>
-  </section>
-
-  <section class="shell materials" aria-labelledby="materials-title">
-    <div class="section-head">
-      <span class="eyebrow">Materials and shopping</span>
-      <h2 id="materials-title" class="section-title">Know what to buy, down to the pack</h2>
-      <p class="section-lead">Link materials to each job and RoomCost works out how much you need.</p>
-    </div>
-    <div class="grid">
-      <div class="tile">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
-        <h3>Work plus material</h3><p>Adhesive and grout go with tiling, primer and paint go with painting.</p>
-      </div>
-      <div class="tile">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
-        <h3>Real consumption</h3><p>Flooring, wallpaper, tile, paint, dry mixes, trims and single items, each with its own rule.</p>
-      </div>
-      <div class="tile">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>
-        <h3>Whole packs, once</h3><p>The shopping list for the home rounds up to full packs. Laminate for three rooms becomes one order.</p>
-      </div>
-      <div class="tile">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
-        <h3>Send it as text</h3><p>Share the list with the store or the person doing the buying in any messenger.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="band" aria-labelledby="see-title">
-    <div class="shell">
-      <div class="section-head">
-        <span class="eyebrow">See it before it's built</span>
-        <h2 id="see-title" class="section-title">A 3D view for you. A clean PDF for everyone else.</h2>
-      </div>
-      <div class="showcase">
-        <figure>
-          <div class="device"><img src="images/screen-3d.jpg" alt="3D model of the bedroom with floor, walls, bed and wardrobe" width="640" height="1391" loading="lazy"></div>
-          <figcaption><strong>Inspect the floor in 3D</strong><span>Rotate and zoom the model to see how furniture fits and where doors and windows sit. Export the floor as USDZ to show it on any iPhone, iPad or Mac.</span></figcaption>
-        </figure>
-        <figure>
-          <div class="device"><img src="images/screen-pdf.jpg" alt="PDF preview with the floor plan to scale and the estimate table" width="640" height="1391" loading="lazy"></div>
-          <figcaption><strong>Share a PDF report</strong><span>A4 pages with floor plans to scale and the estimate by room, plus the address and your own fields, such as a phone number, email or website. Preview it in full for free before you pay.</span></figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="shell more" aria-labelledby="more-title">
-    <div class="section-head">
-      <span class="eyebrow">Also in RoomCost</span>
-      <h2 id="more-title" class="section-title">Small things that save a trip</h2>
-    </div>
-    <div class="grid">
-      <div class="tile">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l14-14 4 4L7 21H3z"/><path d="M7 13l2 2M10 10l2 2M13 7l2 2"/></svg>
-        <h3>Measure on the plan</h3><p>Distance between two points, area and perimeter of any region.</p>
-      </div>
-      <div class="tile">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></svg>
-        <h3>Scan a price tag</h3><p>Scan a price tag or open a product page. Review the details RoomCost finds, then save the material to your catalog.</p>
-      </div>
-      <div class="tile">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9z"/></svg>
-        <h3>iCloud sync, works offline</h3><p>Work on plans and estimates offline. Enable iCloud for RoomCost to sync projects between devices using the same Apple Account.</p>
-      </div>
-      <div class="tile">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-        <h3>Folders and search</h3><p>Sort projects into folders and find one by its name or address.</p>
-      </div>
-      <div class="tile">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>
-        <h3>Share as a file</h3><p>Export your catalog from Settings. When you export an estimate, you can also share a file containing that version of the project.</p>
-      </div>
-      <div class="tile">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
-        <h3>Six languages</h3><p>English, Polish, Ukrainian, Russian, Kazakh and Turkish, with local units and currency.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing" class="shell pricing" aria-labelledby="pricing-title">
-    <div class="price-card">
-      <div>
-        <span class="eyebrow">Pricing</span>
-        <h2 id="pricing-title" class="section-title">Plan for free. Choose when to export.</h2>
-        <p class="section-lead">Your first PDF export is free. Additional PDFs and all Excel and CSV exports require an export pass.</p>
-      </div>
-      <div class="price-list">
-        <div><strong>Free planning and estimating</strong><span>Scanning, plans, 3D, catalogs and the estimate on screen, with no limit on projects. No trial period and no account to create.</span></div>
-        <div><strong>Your first PDF is free</strong><span>Preview the full report, then share your first PDF for free.</span></div>
-        <div><strong>A week, a month or a year of export</strong><span>€2.99 for a week, €6.99 for a month or €39.99 for a year in euro countries. The app shows the price for your country before you pay. One pass covers all projects and does not renew automatically. Purchases in the TestFlight beta are free test transactions.</span></div>
-        <div><strong>Your logo with a year</strong><span>With a year of access, your logo goes at the top of every PDF page, and the RoomCost line and QR code at the bottom are left out.</span></div>
-        <div><strong>What you exported stays</strong><span>When access ends, your projects stay and exported PDFs can still be sent. Only new exports stop.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq" class="faq-wrap" aria-labelledby="faq-title">
-    <div class="faq">
-      <h2 id="faq-title" class="section-title">Questions</h2>
-      <div>
-        <details><summary>Do I need an iPhone with LiDAR?<svg class="chev" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>You can draw plans by hand on any iPhone or iPad running iOS 27 or iPadOS 27 or later. Scanning a room with Apple RoomPlan requires a LiDAR-equipped device.</p></details>
-        <details><summary>What is free and what costs money?<svg class="chev" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Planning and estimating are free. Your first PDF export is free too. A week, month or year of export access lets you create additional PDFs and export Excel and CSV files across all your projects. Access does not renew automatically.</p></details>
-        <details><summary>What happens when my access ends?<svg class="chev" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Your projects stay, and exported PDFs stay in the export history and can be sent again for free. You can also return a project to its exported version. Only new exports stop until you buy access again. A week, a month or a year bought while access is open starts when the current one ends, so no paid day is lost.</p></details>
-        <details><summary>How accurate are the numbers?<svg class="chev" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Quantities follow your plan, and prices follow your catalog. Check key walls with a tape measure before ordering materials. The estimate is a guide, not a binding quote.</p></details>
-        <details><summary>Where is my data stored?<svg class="chev" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Projects are stored on your device. When iCloud is available and enabled for RoomCost, your projects sync across devices using the same Apple Account. We do not run servers that receive your projects. See the <a href="privacy.html">Privacy Policy</a>.</p></details>
-        <details><summary>Can I try the beta?<svg class="chev" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Yes. Install Apple's TestFlight app, then open the <a href="https://testflight.apple.com/join/Q9auX86J">RoomCost beta invitation</a>. Beta builds get new features first and may have bugs. Send feedback from TestFlight or to support.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <section class="shell final" aria-labelledby="final-title">
-    <img src="app-icon.jpg" alt="" width="112" height="112" loading="lazy">
-    <h2 id="final-title" class="section-title">Start with one room</h2>
-    <p class="section-lead">Scan it or draw it, add the work, and see the number.</p>
-    <a class="store" href="https://testflight.apple.com/join/Q9auX86J">
-      <svg aria-hidden="true"><use href="#i-download"/></svg>
-      <span><strong>Join the TestFlight beta</strong></span>
-    </a>
+  <section id="pricing" class="shell costs"><div class="price-card"><div><p class="eyebrow">Pricing</p><h2>Free to plan.<br>Pay for exports.</h2><p>In TestFlight, all purchases are free test transactions. These prices apply to the App Store version in euro countries. Your local price appears before purchase.</p></div>
+    <dl><dt>Planning and your first PDF</dt><dd>Free. Draw, scan, measure, build estimates and preview reports.</dd>
+    <dt>PDF, Excel and CSV exports</dt><dd>€2.99 per week, €6.99 per month or €39.99 per year. One pass covers every project and does not renew automatically.</dd>
+    <dt>Your logo on reports</dt><dd>With yearly access, you can put your own logo on each PDF page and remove the RoomCost footer and QR code.</dd></dl>
+  </div></section>
+  <section id="faq" class="faq"><h2>Questions</h2>
+    <details><summary>Can I use RoomCost without LiDAR?</summary><p>You can draw by hand on any supported iPhone or iPad. Scanning rooms with Apple RoomPlan requires a LiDAR-equipped device.</p></details>
+    <details><summary>Where do the prices come from?</summary><p>You enter rates for work and materials in your catalog. RoomCost uses the dimensions of your plan to calculate quantities. Check key measurements before ordering.</p></details>
+    <details><summary>What happens when export access ends?</summary><p>Your projects and exported PDFs stay. You can share a saved PDF from export history or restore the project to that version. A new pass adds time after any access you already have.</p></details>
+    <details><summary>Where are my projects stored?</summary><p>Projects stay on your device. If iCloud is enabled for RoomCost, they sync across devices signed in to the same Apple Account.</p></details>
+    <details><summary>How do I join the beta?</summary><p>Install Apple’s TestFlight app on your device, then open the <a href="https://testflight.apple.com/join/Q9auX86J">RoomCost invitation</a>. You can send feedback directly from TestFlight.</p></details>
+    <a class="doc-link" href="support.html">Contact support</a>
   </section>
 </main>
+<footer class="footer"><div class="shell">
+  <span>© 2026 RoomCost</span><nav aria-label="Footer"><a href="support.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></nav>
+</div></footer>
 
-<footer class="footer">
-  <div class="shell">
-    <span>© 2026 RoomCost</span>
-    <nav aria-label="Footer"><a href="support.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></nav>
-  </div>
-</footer>
 </body>
 </html>
